@@ -5,10 +5,10 @@ isoCode = "en"
 weight = 1
 rtl = false
 
-title = "Blowfish"
+title = "Conor MacDonald"
 # logo = "img/logo.png"
 description = "My awesome website"
-# copyright = "Copy, _right?_ :thinking_face:"
+copyright = "&copy; 2022 Conor MacDonald"
 
 dateFormat = "2 January 2006"
 
