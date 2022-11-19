@@ -13,9 +13,9 @@ copyright = "&copy; 2022 Conor MacDonald"
 dateFormat = "2 January 2006"
 
 [author]
-  name = "Your name here"
-  image = "img/milfordSound.png"
-  headline = "I'm only human"
+  name = "Hi, I'm Conor."
+  #image = "img/milfordSound.png"
+  #headline = "You miss 100% of the shots you don't take"
   bio = "A little bit about you"
   # links = [
   #   { email = "mailto:hello@your_domain.com" },
