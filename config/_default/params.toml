@@ -8,7 +8,7 @@
 colorScheme = "autumn"
 defaultAppearance = "dark" # valid options: light or dark
 autoSwitchAppearance = false
-
+#logo = "img/milfordSound.png" #this is the logo that appears on LHS of website title in header
 enableSearch = false
 enableCodeCopy = true
 
