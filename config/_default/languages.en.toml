@@ -6,8 +6,8 @@ weight = 1
 rtl = false
 
 title = "Conor MacDonald"
-# logo = "img/logo.png"
-description = "My awesome website"
+#logo = "img/milfordSound.png"
+description = "Welcome to my blog."
 copyright = "&copy; 2022 Conor MacDonald"
 
 dateFormat = "2 January 2006"

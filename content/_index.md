@@ -4,5 +4,5 @@ description: "Homepage .md file"
 ---
 
 <div style="text-align: justified"> 
-I like to learn about Linux development and experiment with my homelab setup in my spare time. I try to help the community become a better place by showcasing open-source alternatives to privacy-invading services like Google. 
+I like to tinker with open-source service applications on my self-hosted home server in my spare time. I try to help the community become a better place by showcasing some of these applications, particularly those with a cyber security or privacy focus, that can be deployed in your home. 
 </div>
