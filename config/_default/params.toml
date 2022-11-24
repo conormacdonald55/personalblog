@@ -20,8 +20,8 @@ enableCodeCopy = true
 
 [footer]
   showMenu = false
-  showCopyright = true
-  showThemeAttribution = true
+  showCopyright = false
+  showThemeAttribution = false
   showAppearanceSwitcher = false
   showScrollToTop = true
 
