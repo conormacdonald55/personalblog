@@ -3,7 +3,7 @@
 # https://nunocoracao.github.io/blowfish/docs/getting-started/
 
 theme = "blowfish"
-baseURL = "https://www.conormacdonald.com.au/"
+baseURL = "https://conormacdonald.com.au/"
 defaultContentLanguage = "en"
 
 enableRobotsTXT = true
