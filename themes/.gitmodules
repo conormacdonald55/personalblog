@@ -1,0 +1,5 @@
+[submodule "blowfish/"]
+	branch = main
+[submodule "blowfish"]
+	branch = main
+	update = rebase

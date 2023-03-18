@@ -5,12 +5,14 @@
 # Refer to the theme docs for more details about each of these parameters.
 # https://nunocoracao.github.io/blowfish/docs/configuration/#theme-parameters
 
-colorScheme = "autumn"
+colorScheme = "noir"
 defaultAppearance = "dark" # valid options: light or dark
-autoSwitchAppearance = false
+autoSwitchAppearance = true
 #logo = "img/milfordSound.png" #this is the logo that appears on LHS of website title in header
-enableSearch = false
+enableSearch = true
 enableCodeCopy = true
+smartTOC = true
+smartTOCHideUnfocusedChildren = true
 
 # mainSections = ["section1", "section2"]
 # robots = ""
@@ -22,13 +24,13 @@ enableCodeCopy = true
   showMenu = false
   showCopyright = false
   showThemeAttribution = false
-  showAppearanceSwitcher = false
+  showAppearanceSwitcher = true
   showScrollToTop = true
 
 [homepage]
   layout = "background" # valid options: page, profile, hero, card, background, custom
   homepageImage = "img/milfordSound.png" # used in: hero, and card
-  showRecent = false
+  showRecent = true
   showRecentItems = 5
   showMoreLink = false
   showMoreLinkDest = "/posts"
@@ -38,29 +40,30 @@ enableCodeCopy = true
 
 [article]
   showDate = true
-  #showViews = true
+  showViews = false
   #showLikes = true
   showDateUpdated = false
-  showAuthor = true
-  showHero = true
+  showAuthor = false
+  showHero = false
   heroStyle = "basic" # valid options: basic, big, background
   layoutBackgroundBlur = false # only used when heroStyle equals background
   showBreadcrumbs = true
   showDraftLabel = true
-  showEdit = true
+  showEdit = false
   # editURL = "https://github.com/username/repo/"
   editAppendPath = true
   seriesOpened = false
   showHeadingAnchors = true
   showPagination = true
   invertPagination = false
-  showReadingTime = true
+  showReadingTime = false
   showTableOfContents = true
   showTaxonomies = false 
   showAuthorsBadges = false 
-  showWordCount = true
+  showWordCount = false
   showSummary = true
-  sharingLinks = [ "linkedin", "twitter", "whatsapp", "pinterest", "reddit", "facebook", "email"]
+  #sharingLinks = [ "linkedin", "twitter", "whatsapp", "pinterest", "reddit", "facebook", "email"]
+  sharingLinks = []
 
 [list]
   #showHero = true
