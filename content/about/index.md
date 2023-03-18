@@ -10,19 +10,25 @@ description: "Software I use and other useful tools"
 #slug: "shortcodes"
 ---
 
-# Uses
+## Uses
 
-Here is a list of all the software, technologies, and tools I use. 
+Here is a list of all the software, technologies, and tools I use.
 
 ## This Website
 
 * [Hugo](https://gohugo.io/) - a popular open-source static site generator for building very fast and very flexible websites.
-* [Blowfish](https://blowfish.page/) - A free, powerful, lightweight theme for Hugo built with Tailwind CSS. I found this theme to have robust documentation compared with than other Hugo themes. This theme is also super flexible and super pretty. 
-* [Cloudflare](https://www.cloudflare.com/en-gb/) - I use Cloudflare pages to build and deploy my website through Cloudflare Pages. I also control my domain through Cloudflare (hosting, security, analytics) which I found to be very easy and intuitive to use. I am using Cloudflare's free tier.
-* [VentraIP](https://ventraip.com.au/) - I registered my domain name through VentraIP. However, everything else associated with a website (hosting, deployment, security, analytics) is done through Cloudflare. 
+* [Blowfish](https://blowfish.page/) - A free, powerful, lightweight theme for Hugo built with Tailwind CSS. I found this theme to have robust documentation compared with than other Hugo themes. This theme is also super flexible and super pretty.
+* [Cloudflare](https://www.cloudflare.com/en-gb/) - I use Cloudflare pages to automatically build and deploy my website through Cloudflare Pages which is linked to the GitHub repo of my website code. I also control my domain through Cloudflare (hosting, security, analytics) which I found to be very easy and intuitive to use. I am using Cloudflare's free tier.
+* [VentraIP](https://ventraip.com.au/) - I registered my domain name through VentraIP. However, everything else associated with a website (hosting, deployment, security, analytics) is done through Cloudflare.
 
 ## Software
 
-* [VS Code](https://code.visualstudio.com/) - my preferred code editor for my website and other hobby projects like my homelab. 
+* [VS Code](https://code.visualstudio.com/) - my preferred code editor for my website and other hobby projects like my homelab.
 * [1password](https://1password.com/) - my preferred password manager and one I recommend to everyone. I cannot tell how good this password manager is and how simple it is to use. Great product 10/10.
+* [Microsoft Authenticator](https://www.microsoft.com/en-us/security/mobile-authenticator-app) - my authenticator app that I use for simple, fast and highly secure two-factor authentication.
 
+## Operating Systems
+
+* Ubuntu core - for desktops
+* Ubuntu server - for my server environments
+* Proxmox - for my clustered server environment
