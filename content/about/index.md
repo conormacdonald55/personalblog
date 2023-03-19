@@ -12,10 +12,9 @@ description: "Software I use and other useful tools"
 
 Hi, I'm Conor MacDonald.
 
-I'm an engineer with a passion for automation and security. I enjoy finding ways to make my professional and personal enviroment more automated and more secure. 
+I'm an engineer with a passion for automation and security. I enjoy finding ways to make my professional and personal enviroment more automated and more secure.
 
 If you'd like to get in touch, you can email me at [conortmacdonald@protonmail.com](mailto:conortmacdonald@protonmail.com)
-
 
 ## My Links
 
