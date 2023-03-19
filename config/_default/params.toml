@@ -11,6 +11,7 @@ autoSwitchAppearance = true
 #logo = "img/milfordSound.png" #this is the logo that appears on LHS of website title in header
 enableSearch = true
 enableCodeCopy = true
+disableImageZoom = true
 smartTOC = true
 smartTOCHideUnfocusedChildren = true
 
@@ -69,7 +70,7 @@ smartTOCHideUnfocusedChildren = true
   #showHero = true
   #heroStyle = "background" # valid options: basic, big, background
   showBreadcrumbs = false
-  showSummary = false
+  showSummary = true
   #showViews = true
   #showLikes = true
   showTableOfContents = false
