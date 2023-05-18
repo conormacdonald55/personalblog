@@ -1,6 +1,6 @@
 ---
 title: "Space in Australia? So what?"
-summary: "A surface level look at Adelaide's next major industry"
+summary: "A surface level look at Adelaide's next major industry."
 date: 2020-11-30
 draft: false
 description: "Space? So what?"
