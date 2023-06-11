@@ -103,7 +103,7 @@ For more advice on how to build strong passphrases, see the ACSC’s Creating St
 
 ## Watch out for scams
 
-ChatGPT: Cybercriminals use various methods to trick you into revealing sensitive information or transferring money. Be wary of messages that claim to be from official sources or have a sense of urgency or scarcity. If you're unsure about a message, don't click on any links or give away personal information.
+Cybercriminals use various methods to trick you into revealing sensitive information or transferring money. Be wary of messages that claim to be from official sources or have a sense of urgency or scarcity. If you're unsure about a message, don't click on any links or give away personal information.
 
 Cybercriminals use email, SMS, phone calls and social media to trick you into opening an attachment, visiting a website, revealing account login details, revealing sensitive information or transferring money or gift cards. These messages are made to appear as if they were sent from individuals or organisations you think you know, or you think you should trust.
 
