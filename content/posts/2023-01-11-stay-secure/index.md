@@ -13,7 +13,7 @@ slug: "staying-secure-online-as-as-boomer"
 Even if you are not a boomer, this guide can still help you get your personal cyber security under control!
 {{< /alert >}}
 
-My parents mess up with technology all the time. Sometimes it's pretty simple stuff like using the same password for every login or more advanced stuff like the organisation responsible for their data was compromised (Optus). So I've distilled 5 simlpe steps that I (tech-savy son) teach my parents so they can avoid getting into trouble online. 
+My parents mess up with technology all the time. Sometimes it's pretty simple stuff like using the same password for every login or more advanced stuff like the organisation responsible for their data was compromised (Optus). So I've distilled 5 simple steps that I (tech-savy son) teach my parents so they can avoid getting into trouble online. 
 
 ![Prevention is the best cure](boomer.jpg "Thanks son!")
 
