@@ -13,11 +13,11 @@ slug: "last-day-at-shoal"
 
 ![](Picture1.jpg)
 
-![](2020-12-04-ChristmasPartyADL_(8).jpg)
+![](2020-12-04-ChristmasPartyADL_8.jpg)
 
 ![](20181121_111228.jpg)
 
-![](20181121_122439(0).jpg)
+![](20181121_1224390.jpg)
 
 ![](20211209_101006.jpg)
 
