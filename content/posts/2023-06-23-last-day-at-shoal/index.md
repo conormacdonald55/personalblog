@@ -13,8 +13,6 @@ slug: "last-day-at-shoal"
 
 ![](Picture1.jpg)
 
-
-
 ![](20181121_111228.jpg)
 
 ![](20181121_1224390.jpg)
@@ -28,8 +26,6 @@ slug: "last-day-at-shoal"
 ![](IMG_5058.jpg)
 
 ![](IMG_20181207_202635.jpg)
-
-![](F96952F2-15B4-4802-8352-7C4281BAED7B.jpg)
 
 ![](Cheesey_Grin.jpg)
 

@@ -1,0 +1,3 @@
+![](2020-12-04-ChristmasPartyADL_8.jpg)
+
+![](F96952F2-15B4-4802-8352-7C4281BAED7B.jpg)
