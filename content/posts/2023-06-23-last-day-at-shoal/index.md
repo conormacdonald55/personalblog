@@ -11,5 +11,5 @@ slug: "last-day-at-shoal"
 
 # Last day at Shoal photos
 
-![](boomer.jpg)
+![](Picture1.jpg)
 
