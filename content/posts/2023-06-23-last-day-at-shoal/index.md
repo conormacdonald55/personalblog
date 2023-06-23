@@ -33,3 +33,4 @@ slug: "last-day-at-shoal"
 
 ![](Cheesey_Grin.jpg)
 
+Fin.
