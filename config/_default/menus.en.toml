@@ -16,20 +16,25 @@
   weight = 10
 
 [[main]]
+  name = "The Research"
+  pageRef = "series/acoustic-metamaterials"
+  weight = 20
+
+[[main]]
   name = "About"
   pageRef = "about"
-  weight = 10
+  weight = 30
 
+
+[[main]]
+  name = "Tags"
+  pageRef = "tags"
+  weight = 40
 
 #[[main]]
 #  name = "Categories"
 #  pageRef = "categories"
-#  weight = 20
-
-#[[main]]
-#  name = "Tags"
-#  pageRef = "tags"
-#  weight = 30
+#  weight = 50
 
 
 # -- Footer Menu --
