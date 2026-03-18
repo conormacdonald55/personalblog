@@ -30,3 +30,6 @@ buildFuture = false
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+
+[minify]
+  disableJS = true
