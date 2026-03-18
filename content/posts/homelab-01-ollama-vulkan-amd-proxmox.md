@@ -5,7 +5,7 @@ date: 2026-03-18
 series: ["homelab"]
 tags: ["homelab", "ollama", "AMD", "GPU", "Proxmox", "Vulkan", "LXC", "self-hosting", "AI"]
 categories: ["The Homelab"]
-draft: false
+draft: true
 description: "ROCm kept failing on Proxmox's patched kernel. The fix was Vulkan — and it works beautifully. Full step-by-step guide for AMD Radeon 780M (RDNA3) on Proxmox."
 ---
 

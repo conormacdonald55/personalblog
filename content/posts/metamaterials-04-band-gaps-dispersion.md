@@ -6,7 +6,7 @@ series: ["acoustic-metamaterials"]
 tags: ["metamaterials", "acoustics", "band gaps", "dispersion", "Bloch-Floquet", "phononic crystals"]
 categories: ["The Research"]
 series_order: 4
-draft: false
+draft: true
 description: "The dispersion relation is the map of a metamaterial. Here's how to read it — and what band gaps actually mean."
 ---
 

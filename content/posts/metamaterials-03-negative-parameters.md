@@ -6,7 +6,7 @@ series: ["acoustic-metamaterials"]
 tags: ["metamaterials", "acoustics", "negative density", "negative bulk modulus", "physics"]
 categories: ["The Research"]
 series_order: 3
-draft: false
+draft: true
 description: "Negative mass. Negative stiffness. These aren't science fiction — they're how acoustic metamaterials work. Here's the physics."
 ---
 

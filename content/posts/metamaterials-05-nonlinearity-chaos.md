@@ -6,7 +6,7 @@ series: ["acoustic-metamaterials"]
 tags: ["metamaterials", "acoustics", "nonlinear", "chaos", "Duffing oscillator", "band gaps"]
 categories: ["The Research"]
 series_order: 5
-draft: false
+draft: true
 description: "Linear metamaterials are elegant. Nonlinear ones are alive. Here's what happens when amplitude matters — and why chaos might be the design tool we've been overlooking."
 ---
 
