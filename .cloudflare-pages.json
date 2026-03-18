@@ -1,0 +1,9 @@
+{
+  "build": {
+    "command": "hugo --minify",
+    "destination": "public",
+    "environment": {
+      "HUGO_VERSION": "0.147.0"
+    }
+  }
+}
