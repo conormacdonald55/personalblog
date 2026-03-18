@@ -1,8 +1,8 @@
 ---
 title: "Hello there."
-description: "Homepage .md file"
+description: "Product Owner by day. Researcher, homelab tinkerer, and security nerd by night."
 ---
 
-<div style="text-align: justified">
-I like to tinker with open-source service applications on my self-hosted home server. I try to help the community become a better place by showcasing some of these applications that can be deployed in your home, particularly those with a cyber security or privacy focus.
-</div>
+Product Owner by day. Researching acoustic metamaterials, building a cybersecurity consultancy, and running a homelab that's gotten a bit out of hand.
+
+This blog is where I document the work — the research, the builds, the business, and the occasional detour. Nothing polished. Just honest notes from someone figuring it out.

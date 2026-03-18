@@ -4,8 +4,8 @@ date: 2023-06-23
 draft: false
 description: "last day at shoal"
 summary: "last day at shoal"
-categories: ["published", "test"]
-tags: ["first", "awesome"]
+categories: ["published"]
+tags: []
 slug: "last-day-at-shoal"
 ---
 

@@ -1,38 +1,59 @@
 ---
-title: "Why you should use a Password Manager"
+title: "Password managers: actually just do this"
 date: 2023-04-01
 draft: true
-description: "Using a Password Manager is the best investment in your personal security."
-summary: "Using a Password Manager is the best investment in your personal security."
-categories: ["published", "test"]
-tags: ["first", "awesome"]
-slug: "why-you-should-use-a-password-manager"
+description: "Stop reusing passwords. Use a password manager."
+summary: "Stop reusing passwords. Use a password manager."
+categories: ["published"]
+tags: ["security", "passwords"]
+slug: "password-managers-actually-just-do-this"
 ---
 
-As the digital age continues to evolve, so do the threats that come along with it. It's essential to protect yourself and your family from cyber threats, and one of the best ways to do that is by using a password manager. Password managers are secure digital vaults that allow you to store all your login credentials in one place, so you don't have to remember them all.
+You've got dozens of accounts. Email, banking, social media, streaming services, that one forum you haven't visited in five years. And I'm betting you're using some variation of the same password across all of them, right?
 
-If you're between 20-40 years old or have a young family, you likely have a lot of accounts to keep track of, from email accounts to online banking, social media, and streaming services. Here are some of the benefits of using a password manager.
+Yeah, don't do that.
 
-Password Security
+## Why this matters
 
-Passwords are the primary form of authentication online, but they can be easily compromised if you use the same password across multiple accounts or use weak passwords. A password manager can generate complex and unique passwords for each account, making it nearly impossible for hackers to guess or brute-force your passwords. By using a password manager, you can ensure that all your accounts are protected with strong passwords.
+When (not if—when) a company you use gets hacked, your password gets leaked along with it. If you've used that same password anywhere else, attackers now have access to multiple accounts. They'll try your email, your bank, your crypto wallet. This isn't paranoid thinking—it happens constantly. Optus, LinkedIn, your favorite random SaaS tool you signed up for once. It's all been breached.
 
-Time-Saving
+A password manager solves this problem completely. You get one strong password to remember, and the manager generates and stores unique, complex passwords for everything else. Each account is isolated. One breach doesn't compromise your whole digital life.
 
-Do you find yourself wasting time resetting forgotten passwords or trying to remember which password goes with which account? A password manager eliminates this problem by keeping all your login credentials in one place. You can log in to any website or app with just one click, and you don't have to worry about remembering any passwords.
+## What a password manager actually does
 
-Convenience
+Think of it as a secure vault. You store your passwords in it (encrypted), and it auto-fills your login details when you need them. That's it. No magic, no complexity. You remember one master password, and the rest is handled.
 
-Password managers can be used on multiple devices, including desktops, laptops, tablets, and smartphones, so you can access your passwords from anywhere. This feature is particularly helpful for families who have multiple devices or members who need to access the same accounts.
+The good ones also:
 
-Family Sharing
+- Generate strong random passwords for new accounts
+- Tell you when a password has been leaked in a breach
+- Work across your phone, laptop, and tablet
+- Let you share passwords with family (important for shared streaming accounts, shared banking stuff)
 
-Most password managers offer a family-sharing feature, which allows you to share passwords with other family members. This feature can come in handy when you want to share streaming service accounts or online shopping accounts. It eliminates the need to remember different login credentials for each family member.
+## So which one?
 
-Security Breach Notifications
+Use **Bitwarden**. Full stop.
 
-Password managers can also notify you if any of your accounts have been compromised in a data breach. This feature is particularly essential for young families who may have multiple accounts that contain sensitive information. If a breach occurs, you can quickly change the password and take appropriate action to protect your information.
+It's free, open source, and you can even self-host it if you're into that. The free tier covers everything most people need—unlimited passwords, sync across devices, browser extension. You can upgrade to the paid version ($10/year, basically free) for family sharing and some extra features, but honestly the free version is plenty.
 
- 
+The alternatives exist (1Password, LastPass, KeePass), and some are fine. But Bitwarden is the straightforward choice: it's free, it's not trying to harvest your data, and it works. There's no real reason to overcomplicate this.
 
-In conclusion, using a password manager can provide significant benefits for young families and individuals between the ages of 20-40. It offers convenience, time-saving, security, and family-sharing features. If you haven't already started using a password manager, it's never too late to start. Your online security and peace of mind are worth the investment.
+## How to get started
+
+1. Go to [bitwarden.com](https://bitwarden.com)
+2. Create an account with a strong master password (make it long, random, something like "purple keyboard seventeen mountain")
+3. Install the browser extension for Chrome, Firefox, Safari, or whatever you use
+4. Install the app on your phone
+5. Start generating passwords for new accounts or migrating old ones
+
+When you create a new account somewhere, Bitwarden will prompt you to save the login. When you need to log in later, it auto-fills. Simple.
+
+For existing accounts, you can manually add them, but there's no urgency. Over time, as you log in to things normally, just let Bitwarden save them. You'll have everything migrated in a few weeks.
+
+## The one thing you need to actually remember
+
+Your master password. Make it good. Long, random, and something you won't forget. This is the one password security actually depends on—if someone gets your master password, they get everything. But you only need to remember one, so make it count.
+
+Write it down somewhere safe if you need to. A physical notebook that lives in a drawer is more secure than "I'll just remember it."
+
+That's it. Your security just went up dramatically with basically zero effort.
