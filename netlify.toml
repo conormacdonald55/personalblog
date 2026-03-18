@@ -1,8 +1,7 @@
 [build]
-  command = "hugo --minify"
+  command = "wget -q https://github.com/gohugoio/hugo/releases/download/v0.147.0/hugo_extended_0.147.0_linux-amd64.tar.gz -O /tmp/hugo.tar.gz && tar xz -C /tmp < /tmp/hugo.tar.gz && /tmp/hugo --minify"
   publish = "public"
 
 [build.environment]
-  HUGO_VERSION = "0.147.0"
   HUGO_ENVIRONMENT = "production"
   GIT_SUBMODULE_STRATEGY = "recursive"
