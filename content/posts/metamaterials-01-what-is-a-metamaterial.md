@@ -5,6 +5,7 @@ date: 2026-03-15
 series: ["acoustic-metamaterials"]
 tags: ["metamaterials", "acoustics", "physics", "research"]
 categories: ["The Research"]
+series_order: 1
 draft: false
 description: "Acoustic metamaterials can cloak objects from sound, block vibrations at impossible frequencies, and exhibit negative mass. Here's what they are and why they matter."
 ---

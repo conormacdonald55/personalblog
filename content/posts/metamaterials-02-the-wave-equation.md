@@ -5,6 +5,7 @@ date: 2026-03-18
 series: ["acoustic-metamaterials"]
 tags: ["metamaterials", "acoustics", "wave equation", "physics", "mathematics"]
 categories: ["The Research"]
+series_order: 2
 draft: false
 description: "Before we can understand how metamaterials manipulate sound, we need the equation that governs it. Here's the wave equation — derived, explained, and connected to everything that follows."
 ---
