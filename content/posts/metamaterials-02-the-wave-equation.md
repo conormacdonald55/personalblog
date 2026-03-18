@@ -320,5 +320,5 @@ plt.show()
 
 3. **Cummer, S.A., Christensen, J., & Alù, A. (2016).** Controlling sound with acoustic metamaterials. *Nature Reviews Materials*, 1, 16001. DOI: 10.1038/natrevmats.2016.1 *(A thorough review situating the wave equation in the metamaterials context, including how effective-medium parameters emerge and modify wave behaviour.)*
 {{< alert icon="circle-info" cardColor="#f1f5f9" iconColor="#94a3b8" textColor="#475569" >}}
-**AI Assistance:** This post was researched and drafted with the assistance of Claude Sonnet 4.6 (Anthropic) via [OpenClaw](https://openclaw.ai). The research direction, editorial decisions, and code review are the author's own.
+**AI Assistance:** This post was researched and drafted with the assistance of Claude Sonnet 4.6 (Anthropic) via [OpenClaw](https://openclaw.ai). The research direction and editorial decisions are the author's own.
 {{< /alert >}}

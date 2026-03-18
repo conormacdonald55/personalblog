@@ -271,5 +271,5 @@ The homelab is supposed to be fun. This approach keeps it that way.
 *Previous post: [What is a Metamaterial, and Why Should You Care? →](/posts/metamaterials-01-what-is-a-metamaterial/)*
 
 {{< alert icon="circle-info" cardColor="#f1f5f9" iconColor="#94a3b8" textColor="#475569" >}}
-**AI Assistance:** This post was researched and drafted with the assistance of Claude Sonnet 4.6 (Anthropic) via [OpenClaw](https://openclaw.ai). The research direction, editorial decisions, and code review are the author's own.
+**AI Assistance:** This post was researched and drafted with the assistance of Claude Sonnet 4.6 (Anthropic) via [OpenClaw](https://openclaw.ai). The research direction and editorial decisions are the author's own.
 {{< /alert >}}
