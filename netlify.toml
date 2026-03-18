@@ -1,5 +1,5 @@
 [build]
-  command = "wget -q https://github.com/gohugoio/hugo/releases/download/v0.147.0/hugo_extended_0.147.0_linux-amd64.tar.gz -O /tmp/hugo.tar.gz && tar xz -C /tmp < /tmp/hugo.tar.gz && /tmp/hugo --minify"
+  command = "wget -q https://github.com/gohugoio/hugo/releases/download/v0.147.0/hugo_extended_0.147.0_linux-amd64.tar.gz -O /tmp/hugo.tar.gz && tar xz -C /tmp < /tmp/hugo.tar.gz && /tmp/hugo"
   publish = "public"
 
 [build.environment]
