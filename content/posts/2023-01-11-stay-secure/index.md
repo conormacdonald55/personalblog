@@ -4,8 +4,8 @@ date: 2023-01-11
 draft: false
 description: "Learn how to stay secure online."
 summary: "Learn how to stay secure online."
-categories: ["published", "test"]
-tags: ["first", "awesome"]
+categories: ["published"]
+tags: []
 slug: "staying-secure-online-as-as-boomer"
 ---
 
@@ -13,11 +13,11 @@ slug: "staying-secure-online-as-as-boomer"
 Even if you are not a boomer, this guide can still help you get your personal cyber security under control!
 {{< /alert >}}
 
-My parents mess up with technology all the time. Sometimes it's pretty simple stuff like using the same password for every login or more advanced stuff like the organisation responsible for their data was compromised (Optus). So I've distilled 5 simple steps that I (tech-savy son) teach my parents so they can avoid getting into trouble online. 
+My parents mess up with technology all the time. Sometimes it's pretty simple stuff like using the same password for every login or more advanced stuff like the organisation responsible for their data was compromised (Optus). So I've distilled 5 simple steps that I (tech-savvy son) teach my parents so they can avoid getting into trouble online. 
 
 ![Prevention is the best cure](boomer.jpg "Thanks son!")
 
-A lot of the time, using Google to find out how to secure a device or applicaiton will prove quite useful. However, if you are still unsure, this guide will serve you well.
+A lot of the time, using Google to find out how to secure a device or application will prove quite useful. However, if you are still unsure, this guide will serve you well.
 
 ## Update your devices
 
