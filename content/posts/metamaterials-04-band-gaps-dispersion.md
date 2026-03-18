@@ -294,3 +294,7 @@ print("Saved: band_diagram_mass_ratio.png, band_diagram_annotated.png, gap_width
 ---
 
 *Next post: [Beyond Small Amplitudes — Nonlinearity and the Moving Band Gap →]()*
+
+{{< alert icon="circle-info" cardColor="#f1f5f9" iconColor="#94a3b8" textColor="#475569" >}}
+**AI Assistance:** This post was researched and drafted with the assistance of Claude Sonnet 4.6 (Anthropic) via [OpenClaw](https://openclaw.ai). The research direction, editorial decisions, and code review are the author's own.
+{{< /alert >}}
