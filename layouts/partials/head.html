@@ -102,9 +102,9 @@
   {{/* Schema */}}
   {{ partial "schema.html" . }}
   {{/* Me */}}
-  {{ with .Site.Author.name }}
+  {{ with .Site.Params.Author.name }}
   <meta name="author" content="{{ . }}" />{{ end }}
-  {{ with .Site.Author.links }}
+  {{ with .Site.Params.Author.links }}
   {{ range $links := . }}
   {{ range $name, $url := $links }}
   <link href="{{ $url }}" rel="me" />{{ end }}
@@ -113,7 +113,7 @@
   {{/* Vendor */}}
   {{ partial "vendor.html" . }}
   {{/* Analytics */}}
-  {{ partialCached "analytics.html" .Site }}
+  {{ partialCached "analytics/main.html" .Site }}
   {{/* Extend head - eg. for custom analytics scripts, etc. */}}
   {{ if templates.Exists "partials/extend-head.html" }}
   {{ partialCached "extend-head.html" .Site }}
