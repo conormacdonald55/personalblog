@@ -314,8 +314,8 @@ plt.show()
 
 ## References
 
-Achenbach, J.D. (1973). *Wave Propagation in Elastic Solids*. North-Holland. — The canonical graduate-level reference for elastic wave theory; Chapter 1 covers the derivation from continuum mechanics in full generality.
+1. **Achenbach, J.D. (1973).** *Wave Propagation in Elastic Solids*. North-Holland. *(The canonical graduate-level reference for elastic wave theory; Chapter 1 covers the derivation from continuum mechanics in full generality.)*
 
-Pierce, A.D. (2019). *Acoustics: An Introduction to its Physical Principles and Applications* (3rd ed.). Springer. — Standard modern acoustics text; Chapter 1 treats the linearised equations of fluid motion and the derivation of the acoustic wave equation.
+2. **Pierce, A.D. (2019).** *Acoustics: An Introduction to its Physical Principles and Applications* (3rd ed.). Springer. *(Standard modern acoustics text; Chapter 1 treats the linearised equations of fluid motion and the wave equation derivation.)*
 
-Cummer, S.A., Christensen, J., & Alù, A. (2016). Controlling sound with acoustic metamaterials. *Nature Reviews Materials*, 1, 16001. https://doi.org/10.1038/natrevmats.2016.1 — A thorough review that situates the wave equation squarely in the metamaterials context, including how effective-medium parameters emerge and how they modify wave behaviour.
+3. **Cummer, S.A., Christensen, J., & Alù, A. (2016).** Controlling sound with acoustic metamaterials. *Nature Reviews Materials*, 1, 16001. DOI: 10.1038/natrevmats.2016.1 *(A thorough review situating the wave equation in the metamaterials context, including how effective-medium parameters emerge and modify wave behaviour.)*
