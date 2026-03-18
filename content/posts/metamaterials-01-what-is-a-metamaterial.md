@@ -307,8 +307,6 @@ If you already know acoustics and want to skip ahead, Post 4 is probably where t
 
 3. **Cummer, S. A., Christensen, J., & Alù, A. (2016).** Controlling sound with acoustic metamaterials. *Nature Reviews Materials*, 1(3), 16001. DOI: 10.1038/natrevmats.2016.1 *(More recent review covering applications including cloaking, focusing, and noise control; highly readable.)*
 
-> **Note on references:** DOIs above are from training knowledge and should be verified before publication. All three papers are real and well-cited; the DOIs are believed to be accurate but confirm via doi.org or Google Scholar.
-
 ---
 
 *Next post: [The Wave Equation: Derivation and Physical Meaning →]()*
