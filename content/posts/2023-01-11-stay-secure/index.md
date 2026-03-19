@@ -5,6 +5,8 @@ draft: false
 description: "Learn how to stay secure online."
 summary: "Learn how to stay secure online."
 categories: ["published"]
+series: ["Personal Writing"]
+series_order: 2
 tags: []
 slug: "staying-secure-online-as-as-boomer"
 ---

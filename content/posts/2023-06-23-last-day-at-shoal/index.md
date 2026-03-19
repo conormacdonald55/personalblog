@@ -5,6 +5,8 @@ draft: false
 description: "last day at shoal"
 summary: "last day at shoal"
 categories: ["published"]
+series: ["Personal Writing"]
+series_order: 4
 tags: []
 slug: "last-day-at-shoal"
 ---

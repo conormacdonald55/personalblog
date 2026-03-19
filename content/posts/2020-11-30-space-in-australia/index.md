@@ -5,8 +5,8 @@ date: 2020-11-30
 draft: false
 description: "Space? So what?"
 categories: ["publications"]
-#series: ["Documentation"]
-#series_order: 8
+series: ["Personal Writing"]
+series_order: 1
 slug: "space-in-australia-so-what"
 ---
 > A surface level look at Adelaide's next major industry

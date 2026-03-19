@@ -1,14 +1,9 @@
 ---
-title: "Acoustic Metamaterials: A Research Journey"
-description: "Rediscovering acoustic metamaterials research through the lens of non-linear mathematics and chaos theory — from first principles to publishable research."
+title: "Research Notes: Acoustic Metamaterials"
+description: "Short-form research notes exploring acoustic metamaterials through the lens of non-linear mathematics and chaos theory — building from first principles toward publishable research."
 date: 2026-03-15
 ---
 
-This series documents my journey back into acoustic metamaterials research.
-I left this field after 12 months as a graduate researcher, and I'm returning
-with fresh eyes and a specific goal: understanding these materials through
-non-linear mathematics and chaos theory, ultimately working toward publishable research.
+These are research notes, not papers. Each one takes a complex idea and builds it from simple, approachable concepts — the kind of writing that helps me think clearly and, hopefully, helps you follow along.
 
-Each post builds on the last. Whether you're a fellow researcher or just curious
-about the physics of engineered materials, I've written this to be clear enough
-to pick up after months away.
+The goal is publishable research. This is the working-out-loud part.
