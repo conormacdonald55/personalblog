@@ -5,6 +5,8 @@ draft: true
 description: "Stop reusing passwords. Use a password manager."
 summary: "Stop reusing passwords. Use a password manager."
 categories: ["published"]
+series: ["Personal Writing"]
+series_order: 3
 tags: ["security", "passwords"]
 slug: "password-managers-actually-just-do-this"
 ---
