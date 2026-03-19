@@ -173,7 +173,7 @@ Before this work, most tasks — including overnight research subagents — were
 
 The UM790 Pro cost $1,479 AUD. At ~$12/month saved, it pays for itself on API savings in about 10 years — which is obviously not the financial justification. The real reasons are privacy (conversations stay on-device), speed (no round-trip latency for simple tasks), and the ability to run models 24/7 for batch tasks without watching a spend counter tick up.
 
-**One honest caveat:** GPU acceleration on the UM790 Pro is not working yet. All inference is currently on CPU. The Radeon 780M is there, it's just blocked by ROCm incompatibility with Proxmox's patched kernel. A follow-up post will cover that fix — [the Vulkan workaround I documented earlier](/posts/homelab-01-ollama-vulkan-amd-proxmox) gets GPU acceleration working on the bare metal, but I haven't validated it inside a Proxmox LXC yet. CPU inference with the 7940HS is still fast enough to be practical, just not as fast as it will be.
+**One note on setup:** Ollama runs directly on the bare metal of the UM790 Pro — not in a container. GPU acceleration via the Radeon 780M is active using the Vulkan workaround [documented in Post 1](/posts/homelab-01-ollama-vulkan-amd-proxmox) (ROCm is broken on Proxmox's patched kernel, but Vulkan bypasses that cleanly). OpenClaw itself runs in an LXC on the Qotom, and talks to Ollama over the local network — that separation is intentional and works well.
 
 ---
 
@@ -181,7 +181,7 @@ The UM790 Pro cost $1,479 AUD. At ~$12/month saved, it pays for itself on API sa
 
 - Validate qwen3.5:27b as a subagent (tonight's tests were in the main session — subagent tool calling still unconfirmed)
 - Test Ollama's native web search API as an alternative to Brave for subagent sessions
-- GPU acceleration inside Proxmox LXC — the Vulkan fix needs validating in a container context
+- Test larger quantised models (70B+) — the UM790 Pro has 64GB RAM, so bigger quants may be viable
 
 ---
 
