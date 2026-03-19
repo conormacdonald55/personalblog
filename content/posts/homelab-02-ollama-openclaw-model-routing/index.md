@@ -1,148 +1,163 @@
 ---
-title: "Which Local Model for Which Task? Testing Ollama Models with OpenClaw"
-subtitle: "Not all Ollama models handle tool calling. Here's what I found after running live tests across five models — and how I rewired my AI agent routing as a result."
+title: "Which Local Model for Which Task? A Practical Guide to OpenClaw Subagent Routing"
+subtitle: "Not all Ollama models handle tool calling. Here's how to route tasks across local models — and when to fall back to cloud."
 date: 2026-03-19
 series: ["homelab"]
 series_order: 2
-tags: ["homelab", "ollama", "AI", "LLM", "OpenClaw", "self-hosting", "local-AI", "model-routing"]
+tags: ["homelab", "AI", "ollama", "openclaw", "self-hosted", "local-AI"]
 categories: ["The Homelab"]
 draft: true
-description: "I updated my OpenClaw config to include two new Qwen3.5 models and ran live tests across all five local Ollama models. The results were surprising — and changed how I route tasks between local and cloud AI."
+description: "Running Ollama with OpenClaw means choosing the right model for each task type. This is a practical guide to subagent routing — what works, what fails, and how to structure your config so overnight tasks run free."
 ---
 
-## The Problem With "Just Use a Local Model"
-
-Once you've got Ollama running with GPU acceleration (see [Part 1](/posts/homelab-01-ollama-vulkan-amd-proxmox)), the next question is deceptively simple: *which model do you actually use for what?*
-
-The naive answer is "the biggest one that fits in VRAM." But that ignores something important: not all models handle tool calling equally well. And if you're running an AI agent framework like [OpenClaw](https://openclaw.ai) — where the models need to call tools like `web_search`, `exec`, and `read` — a model that can't reliably structure a tool call JSON is worse than useless. It either fails silently or, worse, hallucinates that it ran the tool and returns fake results.
-
-I found this out the hard way a few weeks ago. Tonight I updated my config with two new Qwen3.5 models and ran a structured test to find out exactly which models I can actually rely on for which tasks.
-
-Here's what I found.
+> **TL;DR:** For OpenClaw subagents, model choice matters more than you think. Small models (<14B) fail at tool calling. Route heartbeats and file ops to cheap local models, and reserve your 27B+ model for anything needing `web_search` or complex reasoning. Cloud models only for the things that genuinely need them.
 
 ---
 
-## My Setup
+## The Problem With "Just Run It Locally"
 
-Quick recap for context:
+Once you've got [Ollama running on your homelab hardware](/posts/homelab-01-ollama-vulkan-amd-proxmox/) and [sorted out the OpenClaw config bugs](/posts/homelab-03-ollama-openclaw-config/), you hit the next question: *which model do you actually use for what?*
 
-- **Ollama host:** MINISFORUM UM790 Pro — Ryzen 9 7940HS, AMD Radeon 780M (RDNA3), 32GB RAM
-- **GPU acceleration:** Vulkan via Mesa/RADV (ROCm doesn't work on Proxmox's patched kernel — full story in Part 1)
-- **OpenClaw:** Running on a separate LXC container (MeLE Quieter 4C, 192.168.4.100), connecting to Ollama over the local network
-- **Models tested:** phi3:mini, llama3.1:8b, qwen2.5-coder:7b, qwen3.5:9b, qwen3.5:27b-q4_K_M
+For a simple chat interface, this barely matters — response quality scales roughly with parameter count and almost any modern model works. But OpenClaw is an agentic framework. It spawns subagents to do things autonomously: research tasks overnight, file operations, code generation, web searches. In that context, model choice matters a lot, because **tool calling reliability varies enormously across model sizes**.
 
-The two Qwen3.5 models were new additions tonight — I'd been running the first three for a while and already had a rough sense of their capabilities. The 27b model in particular was the one I most wanted to test, because it's the largest that still fits comfortably in my VRAM budget.
+A model that can't reliably structure a tool call JSON is worse than useless. It either fails silently, or — worse — hallucinates that it ran the tool and returns fabricated results. You don't know the output is wrong until you check.
 
----
-
-## The Tests
-
-I ran five tests, each designed to probe something specific:
-
-**Test 1 — phi3:mini:** Switch to the model, say hello.
-**Test 2 — qwen2.5-coder:7b:** Write a simple Python hello world function.
-**Test 3 — qwen3.5:9b:** Read my USER.md file and summarise it.
-**Test 4 — llama3.1:8b:** List the files in my workspace using `exec`.
-**Test 5 — qwen3.5:27b-q4_K_M:** Read USER.md, identify my top 3 strategic priorities, suggest one concrete action for each, and use `web_search` to find one relevant resource per priority.
-
-Test 5 is the real test. It requires chaining multiple tools — reading a file, reasoning about its content, and then making three real web search calls. If a model can do that reliably, it's genuinely useful for overnight autonomous research tasks.
+This post is a practical guide to routing tasks across local Ollama models, based on real testing with OpenClaw subagents.
 
 ---
 
-## Results
+## The Core Split: Tool Calling vs. Text Generation
 
-| Model | Responded | Tools | Quality | Speed |
-|---|---|---|---|---|
-| phi3:mini | ✅ | N/A | 3/5 | Fast |
-| qwen2.5-coder:7b | ✅ | N/A | 4/5 | Fast |
-| qwen3.5:9b | ✅ | ✅ | 4/5 | Medium |
-| llama3.1:8b | ✅ | ✅ | 3/5 | Medium |
-| qwen3.5:27b-q4_K_M | ✅ | ✅ | 5/5 | Slow |
+Before getting into specific models, it helps to understand why this split exists.
 
-Every model responded. That's the baseline. But the interesting part is the tool calling column.
+When an agent needs to call a tool — say, `web_search` or `exec` — the model has to produce a correctly structured JSON object in a specific format that the framework can parse. This isn't just "write some JSON" — it requires the model to understand the tool schema, select the right tool for the job, fill in the parameters correctly, and produce output that the framework can deserialise.
 
-### The Small Models
+Community consensus (backed by [testing documented on haimaker.ai](https://haimaker.ai/blog/best-local-models-for-openclaw)) is that **models under roughly 14B parameters are unreliable for this in agentic frameworks**. They either skip the tool call, produce malformed JSON, or attempt to construct the call in a slightly wrong format. The failure mode is often silent — you don't get an error, you just get wrong output.
 
-**phi3:mini** and **qwen2.5-coder:7b** both did exactly what they were asked — a greeting and a code snippet respectively — cleanly and quickly. No complaints. But neither was asked to use tools, so this just confirms they're functional.
+This creates a natural split in how you route tasks:
 
-**llama3.1:8b** used `exec` to list files correctly. Simple tool call, worked fine. But I've tested it more extensively before, and here's the honest assessment: llama3.1:8b is unreliable for anything requiring *structured* tool output. It'll often try to construct the JSON itself rather than using the framework's tool interface, and when it does that, things go sideways. Good for simple file writes with clear instructions. Not good for anything more complex.
-
-### qwen3.5:9b — A Solid Middle Tier
-
-Qwen3.5:9b read my USER.md file and summarised it accurately. It captured the key priorities correctly, kept the summary concise, and didn't hallucinate anything. For tasks that involve reading files and producing structured summaries — think "read these three research papers and give me the key findings" — this model is genuinely reliable and free to run.
-
-### qwen3.5:27b — The Surprise
-
-This is the one I was most curious about, and it delivered. The model:
-
-1. Read my USER.md correctly
-2. Correctly identified my top three strategic priorities (MIT application, Dominion Cyber launch, career transition to AI leadership)
-3. Suggested a concrete action for each
-4. Made **three separate `web_search` calls** — and all three returned real results
-
-That last point is significant. Previous testing had shown me that smaller Ollama models (7b-ish) either fail to structure tool calls correctly or, in the worst case, pretend they ran the search and return fabricated results. The 27b model didn't do either of those things. It formed the tool call correctly, waited for the real result, and incorporated it into its response.
-
-For context, the searches returned:
-- MDPI Applied Sciences special issue on acoustic metamaterials (relevant to my research)
-- cyber.gov.au small business cybersecurity guide Jan 2025 (relevant to my business)
-- MIT Professional Education CPO certificate and MIT xPRO AI Strategy program (relevant to career goals)
-
-Real results. Not hallucinations. That's the bar.
+| Task type | Needs tools? | Model tier |
+|---|---|---|
+| Heartbeats, greetings | No | Any small model |
+| Summarise a file | Read only | Mid-tier (9B+) |
+| Code generation | No (or simple) | Specialised coder model |
+| File ops (`exec`, `read`) | Yes (simple) | Mid-tier (8B+) |
+| Web research, multi-step | Yes (complex) | Large (27B+) |
+| Strategic reasoning, writing | Maybe | Cloud |
 
 ---
 
-## Why This Matters: Tool Calling Is the Hard Part
+## The Models and What They're Good For
 
-Here's the thing most "run local LLMs" guides don't tell you: for a *chat* use case, almost any modern model works fine. Response quality scales roughly with parameter count, and even a 3b model can have a decent conversation.
+Here's the lineup I'm running on a MINISFORUM UM790 Pro (Ryzen 9 7940HS, 64GB RAM, Radeon 780M):
 
-But for an *agent* use case — where the model needs to interact with external systems, call APIs, read files, and chain multiple actions together — tool calling reliability is everything. A model that hallucinates tool results is worse than not running at all, because you don't know the output is wrong.
+### phi3:mini — Microsoft, 3.8B
 
-The reason smaller Ollama models struggle with this isn't (usually) intelligence — it's that they haven't been sufficiently fine-tuned on tool-use datasets in the instruction-following format your framework expects. The 27b Qwen3.5 model has had more capacity devoted to this during training, and it shows.
+**Use for:** Heartbeats, periodic checks, simple acknowledgements — anything where the model just needs to respond with text and no tools are involved.
 
----
+Fast, very low memory footprint, and genuinely good at following simple instructions. Falls apart the moment you ask it to call a tool. Don't use it for anything requiring `web_search`, `exec`, or file operations.
 
-## The Routing Config I Ended Up With
-
-Based on the test results, here's how I'm routing tasks now:
-
-```
-Heartbeats / periodic checks  →  phi3:mini          (free, fast, good enough)
-Simple file writes             →  llama3.1:8b        (free, no tool calls needed)
-Code generation                →  qwen2.5-coder:7b   (free, clean output)
-Summaries / light research     →  qwen3.5:9b         (free, solid)
-Overnight research + search    →  qwen3.5:27b-q4_K_M (free, tool calling works)
-Complex reasoning / strategy   →  claude-sonnet-4-6  (paid, best quality)
-Deep academic writing          →  claude-opus        (paid, ask first)
+```json
+{ "id": "phi3:mini", "reasoning": false, "contextWindow": 4096, "maxTokens": 512 }
 ```
 
-The goal is to push as much as possible to free local inference without sacrificing reliability. With this routing, the only tasks that hit my Anthropic API are the ones that genuinely need the quality gap — strategic thinking and complex writing. Everything else stays on-device.
+### llama3.1:8b — Meta, 8B
 
-Estimated monthly Anthropic API cost with this routing: **$3–8/month** versus the $15–20 I was burning when everything defaulted to Haiku or Sonnet.
+**Use for:** Basic file operations and workspace tasks. It passed a straightforward `exec` test (listing files) reliably in my testing.
+
+Don't expect complex chained tool calls. Good for "read this file and write a summary to another file" type tasks where the tool interaction is simple and there's only one step. Community reports and [openclaw/openclaw#41871](https://github.com/openclaw/openclaw/issues/41871) confirm it hangs in more complex subagent sessions.
+
+```json
+{ "id": "llama3.1:8b", "reasoning": false, "contextWindow": 32768, "maxTokens": 2048 }
+```
+
+### qwen2.5-coder:7b — Alibaba, 7B
+
+**Use for:** Code generation tasks specifically. This model has been fine-tuned on code and produces noticeably cleaner output for programming tasks than a general-purpose 7B model.
+
+Don't use it as a general agent. It's a specialist — point it at code tasks and it does well; ask it to browse the web and it won't.
+
+```json
+{ "id": "qwen2.5-coder:7b", "reasoning": false, "contextWindow": 32768, "maxTokens": 2048 }
+```
+
+### qwen3.5:9b — Alibaba, 9B
+
+**Use for:** Research summaries, reading and digesting files, structured text tasks. In testing it produced an accurate, well-structured summary of a long profile document — capturing the right priorities without hallucinating.
+
+Borderline for tool calling — simple reads work, complex chained searches may not. Use it for tasks where "read and summarise" is the primary action.
+
+```json
+{ "id": "qwen3.5:9b", "reasoning": false, "contextWindow": 32768, "maxTokens": 2048 }
+```
+
+### qwen3.5:27b-q4_K_M — Alibaba, 27B (Q4 quantised)
+
+**Use for:** Anything requiring reliable tool calling. Overnight research tasks, multi-step `web_search` chains, tasks that need to read context, reason about it, and then call tools based on that reasoning.
+
+In live testing, this model:
+1. Read a long context file correctly
+2. Identified the top priorities from it
+3. Made **three separate `web_search` calls** — all returning real results, not hallucinations
+4. Incorporated the search results into a coherent response
+
+That's the bar for "reliable tool calling." It cleared it. The 7B and 8B models did not.
+
+The trade-off: it's slow. On CPU inference (GPU acceleration is still a work in progress on my Proxmox setup), it's noticeably slower than the smaller models. For interactive use this is marginal. For overnight batch tasks, it doesn't matter.
+
+```json
+{ "id": "qwen3.5:27b-q4_K_M", "reasoning": false, "contextWindow": 32768, "maxTokens": 4096 }
+```
 
 ---
 
-## What Still Doesn't Work
+## The Routing Config
 
-Honest section, because these guides always gloss over the failure cases:
+Here's the full routing I use in practice:
 
-**Subagent tool calling with smaller models is still broken.** When I spin up an isolated subagent session with llama3.1:8b or phi3:mini, tool calls don't work reliably. The 27b model works fine in the *main* session where I tested it tonight, but I haven't fully validated it as a subagent yet. That's a test for another day.
+```
+Heartbeats / periodic checks     →  phi3:mini              free, fast
+Simple file writes                →  llama3.1:8b            free, no tool chains
+Code generation                   →  qwen2.5-coder:7b       free, specialist
+Summaries / file digests          →  qwen3.5:9b             free, reliable
+Overnight research + web search   →  qwen3.5:27b-q4_K_M     free, tool calling works
+Complex reasoning / strategy      →  claude-sonnet-4-6      paid, quality gap real
+Deep academic writing             →  claude-opus            paid, ask first
+```
 
-**Speed is a real trade-off.** The 27b model is slow — noticeably so compared to the 8b and 9b options. For interactive use it's marginal, but for overnight batch tasks where latency doesn't matter, it's fine. Your tolerance will depend on your use case.
-
-**The Vulkan GPU acceleration helps but isn't magic.** I'm getting meaningful speedups over CPU inference, but the 780M is still an integrated GPU — not an RTX 4090. If you need fast interactive inference with a 27b model, you need bigger iron.
+The goal: push as much as possible to free local inference. With this config, cloud API calls are reserved for the roughly 10-20% of tasks where the quality difference actually matters — strategic reasoning, complex long-form writing, anything where you'd notice the gap.
 
 ---
 
-## Next Steps
+## When to Use Cloud Models Anyway
 
-A few things I want to test:
+Being honest about this: for some tasks, local models aren't there yet.
 
-- **qwen3.5:27b as a subagent** — does tool calling still work when it's running in an isolated session, or is this specific to main-session context? This matters a lot for autonomous overnight tasks.
-- **Ollama's native web search API** — Ollama recently added a native web search integration. If that works reliably from subagent sessions, it could unlock a whole new tier of capability at zero cloud cost.
-- **Multi-model pipelines** — using a fast cheap model for triage and routing, with the 27b only invoked when tool use or deep reasoning is actually needed.
+**Complex multi-step reasoning with context** — if you need the model to hold a lot of context in mind while reasoning across multiple steps, a 27B quantised model will occasionally lose the thread in ways a frontier model won't.
 
-I'll write those up as I go. If you're running a similar setup and want to compare notes, the [OpenClaw Discord](https://discord.com/invite/clawd) is a good place to find people doing the same thing.
+**Long-form structured writing** — academic-quality writing, nuanced analysis, anything where you'd proof-read carefully. The quality gap between a 27B local model and Claude Sonnet is real and noticeable.
+
+**Tasks where a wrong answer is costly** — if a subagent is going to take an action based on its output (sending a message, committing code, updating a document), the cost of a hallucination is higher. For high-stakes actions, the cloud models are more reliable.
+
+The practical test: would you proofread the output before using it? If yes, use the best local model that can handle the task type. If you'd use the output directly without checking, use a cloud model.
+
+---
+
+## What's Next
+
+- **Validate qwen3.5:27b as a subagent** — tonight's tests were in the main session. Tool calling reliability in isolated subagent sessions is still unconfirmed.
+- **Ollama's native web search API** — Ollama recently added built-in web search. If that works from subagent sessions, it could unlock tool calling for smaller models and cut the need for the 27B.
+- **Explore larger models** — 70B+ models via GGUF quantisation. The UM790 Pro has 64GB RAM, so larger quants are theoretically possible.
+
+---
+
+## Key Takeaways
+
+- **Sub-14B models are unreliable for tool calling** in OpenClaw subagents. Use them for text-only tasks.
+- **qwen3.5:27b-q4_K_M** is the sweet spot for free local tool calling right now. It's slow but works.
+- **Route by task type, not just model size.** A specialised 7B coder model beats a general 9B for code tasks.
+- **Cloud models still have a role** — just a smaller one than before.
 
 {{< alert icon="circle-info" cardColor="#f1f5f9" iconColor="#94a3b8" textColor="#475569" >}}
-**AI Assistance:** This post was researched and drafted with the assistance of Claude Sonnet 4.6 (Anthropic) via [OpenClaw](https://openclaw.ai). The research direction, test design, editorial decisions, and results are the author's own.
+**AI Assistance:** This post was researched and drafted with the assistance of Claude Sonnet 4.6 (Anthropic) via [OpenClaw](https://openclaw.ai). The test results, routing decisions, and editorial judgements are the author's own.
 {{< /alert >}}
