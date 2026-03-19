@@ -237,13 +237,17 @@ Edit your OpenClaw config:
     providers: {
       ollama: {
         apiKey: "ollama-local",
-        baseUrl: "http://192.168.4.52:11434",  // no /v1 suffix
+        baseUrl: "http://192.168.4.52:11434/v1",
         api: "ollama",
       }
     }
   }
 }
 ```
+
+{{< alert icon="triangle-exclamation" cardColor="#fef3c7" iconColor="#d97706" textColor="#92400e" >}}
+**Gotcha: the `/v1` suffix is required.** Without it, OpenClaw cannot locate your models even when Ollama is running perfectly. The failure mode is silent — it shows as "model not found" and falls back to cloud models without warning. If your Ollama models aren't being used when you expect them to be, check the gateway logs at `/tmp/openclaw/openclaw-*.log`. That's where the actual error surfaces.
+{{< /alert >}}
 
 A useful split for a tiered local/cloud setup: use `ollama/phi3:mini` for heartbeats and simple tasks (free, fast, local), `ollama/llama3.1:8b` for moderate reasoning, and reserve the Anthropic API for genuinely complex work. Most routine agent activity doesn't need Claude, and routing it locally keeps the API bill down considerably.
 
