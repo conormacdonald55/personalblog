@@ -24,7 +24,7 @@
     integrity="{{ $chartJS.Data.Integrity }}"></script>
 {{ end }}
 
-{{/* Katex */}}
+{{/* Katex — always loaded; supports $$...$$ display and $...$ inline */}}
 {{ if true }}
   {{ $katexCSS := resources.Get "lib/katex/katex.min.css" }}
   {{ $katexCSS := $katexCSS | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
@@ -35,7 +35,8 @@
     integrity="{{ $katexCSS.Data.Integrity }}">
   {{ $katexLib := resources.Get "lib/katex/katex.min.js" }}
   {{ $katexRenderLib := resources.Get "lib/katex/auto-render.min.js" }}
-  {{ $katexJS := slice $katexLib $katexRenderLib | resources.Concat "js/katex.bundle.js" | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
+  {{ $katexInitScript := resources.Get "js/katex-render.js" }}
+  {{ $katexJS := slice $katexLib $katexRenderLib $katexInitScript | resources.Concat "js/katex.bundle.js" | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
   <script
     defer
     type="text/javascript"
