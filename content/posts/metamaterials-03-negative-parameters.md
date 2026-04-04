@@ -275,5 +275,5 @@ What we have not yet done is map these effects across the full spectrum of a per
 *Next post: [Dispersion Relations and Band Diagrams: Reading the Map of Forbidden Frequencies →]()*
 
 {{< alert icon="circle-info" cardColor="#f1f5f9" iconColor="#94a3b8" textColor="#475569" >}}
-**AI Assistance:** This post was researched and drafted with the assistance of Claude Sonnet 4.6 (Anthropic) via [OpenClaw](https://openclaw.ai). The research direction, editorial decisions, and code review are the author's own.
+**AI Assistance:** This post was written and edited by the author, with AI assistance from Claude Sonnet 4.6 (Anthropic) via [OpenClaw](https://openclaw.ai). The research direction, editorial decisions, and code review are the author's own.
 {{< /alert >}}
