@@ -1,13 +1,8 @@
 ---
-title: "Strange Attractors and Chaos as Design Tool"
-subtitle: "Using chaos mathematics to design broadband-suppressing metamaterials"
-date: 2026-03-18
-series: ["acoustic-metamaterials"]
-tags: ["metamaterials", "acoustics", "chaos", "strange attractors", "Lyapunov exponents", "nonlinear dynamics"]
-categories: ["The Research"]
-series_order: 6
+title: 'Post 6: Strange Attractors & Chaos as Design Tool'
+date: 2023-10-05
 draft: false
-description: "Chaos isn't just something that happens — it's something you can design. Here's how strange attractors become a metamaterial design tool."
+series: Acoustic Metamaterials
 ---
 
 # Introduction
@@ -28,19 +23,19 @@ Strange Attractors are a type of dynamical system characterized by their complex
 
 Mathematically, Strange Attractors can be described by systems of nonlinear differential equations. One of the most famous examples is the Lorenz system:
 
-\[
-\begin{align*}
-\frac{dx}{dt} &= \sigma(y - x) \\
-\frac{dy}{dt} &= x(\rho - z) - y \\
-\frac{dz}{dt} &= xy - \beta z
-\end{align*}
-\]
+\\[
+\\begin{align*}
+\\frac{dx}{dt} &= \\sigma(y - x) \\\\
+\\frac{dy}{dt} &= x(\\rho - z) - y \\\\
+\\frac{dz}{dt} &= xy - \\beta z
+\\end{align*}
+\\]
 
-where \( \sigma = 10 \), \( \rho = 28 \), and \( \beta = \frac{8}{3} \). This system, despite its simplicity, produces the iconic "butterfly" attractor.
+where \\( \\sigma = 10 \\), \\( \\rho = 28 \\), and \\( \\beta = \\frac{8}{3} \\). This system, despite its simplicity, produces the iconic "butterfly" attractor.
 
 # Phase Space Portraits
 
-To visualize Strange Attractors, we can plot their trajectories in phase space. For the Lorenz system, this involves plotting \( x(t) \), \( y(t) \), and \( z(t) \) over time. The resulting plots reveal the complex, non-repeating patterns characteristic of chaotic systems.
+To visualize Strange Attractors, we can plot their trajectories in phase space. For the Lorenz system, this involves plotting \\( x(t) \\), \\( y(t) \\), and \\( z(t) \\) over time. The resulting plots reveal the complex, non-repeating patterns characteristic of chaotic systems.
 
 Here is a Python code snippet that generates a phase space portrait for the Lorenz system:
 
@@ -143,5 +138,8 @@ As we continue to explore this exciting field, we will delve deeper into the mat
 **Next:** *(final post in series)*
 
 ---
-
 If you have any questions or would like to discuss further, feel free to reach out. Happy experimenting!
+
+{{< alert icon="circle-info" cardColor="#f1f5f9" iconColor="#94a3b8" textColor="#475569" >}}
+**AI Assistance:** This post was written and edited by the author, with AI assistance from Deepseek v4 Flash via [OpenClaw](https://openclaw.ai). The research direction, editorial decisions, and code review are the author's own.
+{{< /alert >}}
