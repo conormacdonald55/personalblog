@@ -314,11 +314,21 @@ plt.show()
 
 ## References
 
-1. **Achenbach, J.D. (1973).** *Wave Propagation in Elastic Solids*. North-Holland. *(The canonical graduate-level reference for elastic wave theory; Chapter 1 covers the derivation from continuum mechanics in full generality.)*
+1. **Achenbach, J.D. (1973).** *Wave Propagation in Elastic Solids*. North-Holland. [ISBN: 978-0-7204-0325-4](https://www.elsevier.com/books/wave-propagation-in-elastic-solids/achenbach/978-0-7204-0325-4) *(The canonical graduate-level reference for elastic wave theory; Chapter 1 covers the derivation from continuum mechanics in full generality.)*
 
-2. **Pierce, A.D. (2019).** *Acoustics: An Introduction to its Physical Principles and Applications* (3rd ed.). Springer. *(Standard modern acoustics text; Chapter 1 treats the linearised equations of fluid motion and the wave equation derivation.)*
+2. **Pierce, A.D. (2019).** *Acoustics: An Introduction to its Physical Principles and Applications* (3rd ed.). Springer. [ISBN: 978-3-030-11214-1](https://link.springer.com/book/10.1007/978-3-030-11214-1) *(Standard modern acoustics text; Chapter 1 treats the linearised equations of fluid motion and the wave equation derivation.)*
 
-3. **Cummer, S.A., Christensen, J., & Alù, A. (2016).** Controlling sound with acoustic metamaterials. *Nature Reviews Materials*, 1, 16001. DOI: 10.1038/natrevmats.2016.1 *(A thorough review situating the wave equation in the metamaterials context, including how effective-medium parameters emerge and modify wave behaviour.)*
+3. **Cummer, S.A., Christensen, J., & Alù, A. (2016).** Controlling sound with acoustic metamaterials. *Nature Reviews Materials*, 1, 16001. [DOI: 10.1038/natrevmats.2016.1](https://doi.org/10.1038/natrevmats.2016.1) *(A thorough review situating the wave equation in the metamaterials context, including how effective-medium parameters emerge and modify wave behaviour.)*
+
+---
+
+## Series Navigation
+
+← **Previous:** [Post 1: What is a Metamaterial, and Why Should You Care?](/posts/metamaterials-01-what-is-a-metamaterial/)  
+**Next:** [Post 3: Negative Parameters — When Physics Gets Weird →](/posts/metamaterials-03-negative-parameters/)
+
+---
+
 {{< alert icon="circle-info" cardColor="#f1f5f9" iconColor="#94a3b8" textColor="#475569" >}}
 **AI Assistance:** This post was written and edited by the author, with AI assistance from Claude Sonnet 4.6 (Anthropic) via [OpenClaw](https://openclaw.ai). The research direction, editorial decisions, and code review are the author's own.
 {{< /alert >}}

@@ -1,8 +1,13 @@
 ---
-title: 'Post 6: Strange Attractors & Chaos as Design Tool'
-date: 2023-10-05
+title: "Strange Attractors and Chaos as Design Tool"
+subtitle: "Using chaos mathematics to design broadband-suppressing metamaterials"
+date: 2026-03-18
+series: ["acoustic-metamaterials"]
+tags: ["metamaterials", "acoustics", "chaos", "strange attractors", "Lyapunov exponents", "nonlinear dynamics"]
+categories: ["The Research"]
+series_order: 6
 draft: false
-series: Acoustic Metamaterials
+description: "Chaos isn't just something that happens — it's something you can design. Here's how strange attractors become a metamaterial design tool."
 ---
 
 # Introduction
@@ -129,5 +134,14 @@ When you run this code, you will see a plot of the amplitude response of the cha
 In this final post in our series on acoustic metamaterials using chaos mathematics, we have explored the concept of Strange Attractors and their potential as powerful design tools for creating highly efficient and broadband-suppressing metamaterials. By leveraging chaotic dynamics, we can achieve remarkable acoustic properties that are difficult to obtain through traditional methods.
 
 As we continue to explore this exciting field, we will delve deeper into the mathematical foundations of chaos and its applications in metamaterial design. Stay tuned for more fascinating insights and practical examples!
+
+---
+
+## Series Navigation
+
+← **Previous:** [Post 5: Nonlinearity and Chaos — When the Springs Stop Being Simple](/posts/metamaterials-05-nonlinearity-chaos/)  
+**Next:** *(final post in series)*
+
+---
 
 If you have any questions or would like to discuss further, feel free to reach out. Happy experimenting!

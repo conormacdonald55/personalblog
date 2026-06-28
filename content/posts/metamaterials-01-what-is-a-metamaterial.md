@@ -56,7 +56,7 @@ When engineers design intentionally at the sub-wavelength scale, the constraints
 
 In everyday life, density and stiffness are always positive. Of course they are: you can't have less than no mass, and a material that expands when you compress it sounds absurd. But these are *effective* properties, macroscopic descriptions of how a material responds to a wave. And at certain frequencies, engineered structures can respond to waves in ways that *look* exactly like negative mass or negative stiffness, even though no individual component has those properties.
 
-The game-changer was a 2000 paper in *Science* by Liu and colleagues, who demonstrated that a simple composite (lead spheres coated in soft silicone rubber, embedded in epoxy) could block sound at frequencies *two orders of magnitude below* what you'd predict from the material's weight and stiffness alone. That shouldn't work by conventional acoustics, but it did, because of local resonance. The structure resonated in a way that created, effectively, a material with negative mass density at certain frequencies. We'll unpack exactly how in Post 3.
+The game-changer was a [2000 paper in *Science* by Liu and colleagues](https://doi.org/10.1126/science.289.5485.1734), who demonstrated that a simple composite (lead spheres coated in soft silicone rubber, embedded in epoxy) could block sound at frequencies *two orders of magnitude below* what you'd predict from the material's weight and stiffness alone. That shouldn't work by conventional acoustics, but it did, because of local resonance. The structure resonated in a way that created, effectively, a material with negative mass density at certain frequencies. We'll unpack exactly how in Post 3.
 
 ---
 
@@ -302,15 +302,20 @@ If you already know acoustics and want to skip ahead, Post 4 is probably where t
 
 ## References
 
-1. **Liu, Z., Zhang, X., Mao, Y., Zhu, Y. Y., Yang, Z., Chan, C. T., & Sheng, P. (2000).** Locally resonant sonic materials. *Science*, 289(5485), 1734–1736. DOI: 10.1126/science.289.5485.1734 *(Seminal paper demonstrating local resonance as the mechanism for sub-wavelength band gaps; the founding result of locally resonant acoustic metamaterials.)*
+1. **Liu, Z., Zhang, X., Mao, Y., Zhu, Y. Y., Yang, Z., Chan, C. T., & Sheng, P. (2000).** Locally resonant sonic materials. *Science*, 289(5485), 1734–1736. [DOI: 10.1126/science.289.5485.1734](https://doi.org/10.1126/science.289.5485.1734) *(Seminal paper demonstrating local resonance as the mechanism for sub-wavelength band gaps; the founding result of locally resonant acoustic metamaterials.)*
 
-2. **Hussein, M. I., Leamy, M. J., & Ruzzene, M. (2014).** Dynamics of phononic materials and structures: Historical origins, recent progress, and future outlook. *Applied Mechanics Reviews*, 66(4), 040802. DOI: 10.1115/1.4026911 *(Comprehensive review of the field; excellent companion reading for the full series arc.)*
+2. **Hussein, M. I., Leamy, M. J., & Ruzzene, M. (2014).** Dynamics of phononic materials and structures: Historical origins, recent progress, and future outlook. *Applied Mechanics Reviews*, 66(4), 040802. [DOI: 10.1115/1.4026911](https://doi.org/10.1115/1.4026911) *(Comprehensive review of the field; excellent companion reading for the full series arc.)*
 
-3. **Cummer, S. A., Christensen, J., & Alù, A. (2016).** Controlling sound with acoustic metamaterials. *Nature Reviews Materials*, 1(3), 16001. DOI: 10.1038/natrevmats.2016.1 *(More recent review covering applications including cloaking, focusing, and noise control; highly readable.)*
+3. **Cummer, S. A., Christensen, J., & Alù, A. (2016).** Controlling sound with acoustic metamaterials. *Nature Reviews Materials*, 1(3), 16001. [DOI: 10.1038/natrevmats.2016.1](https://doi.org/10.1038/natrevmats.2016.1) *(More recent review covering applications including cloaking, focusing, and noise control; highly readable.)*
 
 ---
 
-*Next post: [The Wave Equation: Derivation and Physical Meaning →]()*
+## Series Navigation
+
+← **Previous:** (first post in series)  
+**Next:** [Post 2: The Wave Equation — Where Everything Begins →](/posts/metamaterials-02-the-wave-equation/)
+
+---
 
 {{< alert icon="circle-info" cardColor="#f1f5f9" iconColor="#94a3b8" textColor="#475569" >}}
 **AI Assistance:** This post was written and edited by the author, with AI assistance from Claude Sonnet 4.6 (Anthropic) via [OpenClaw](https://openclaw.ai). The research direction, editorial decisions, and code review are the author's own.

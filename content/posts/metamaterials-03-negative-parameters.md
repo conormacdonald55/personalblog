@@ -10,7 +10,7 @@ draft: false
 description: "Negative mass. Negative stiffness. These aren't science fiction — they're how acoustic metamaterials work. Here's the physics."
 ---
 
-At the end of Post 2, we derived the wave equation and discovered something unsettling sitting inside it. If the effective density of a material goes negative, the character of the equation changes. Instead of oscillatory solutions that propagate energy through space, you get exponential ones: a wave entering such a region decays rather than travels. We called this evanescent decay, named the resulting frequency band a band gap, and noted it was central to everything interesting in acoustic metamaterials.
+At the end of Post 2, we derived the wave equation and discovered something unsettling sitting inside it. If the effective density of a material goes negative, the character of the equation changes. Instead of oscillatory solutions that propagate energy through space, you get exponential ones: a wave entering such a region decays rather than travels. We called this evanescent decay, named the resulting frequency band a band gap, and noted that this was central to everything interesting in acoustic metamaterials.
 
 Then we left the obvious question sitting there: how, exactly, do you make a material with negative density?
 
@@ -34,9 +34,9 @@ This is not magic, and it is not a violation of any physical law. No individual 
 
 The clearest physical route to negative effective mass density uses locally resonant inclusions: small internal structures embedded inside a host material, each resonating at a target frequency.
 
-Liu and colleagues demonstrated this in its simplest form in their landmark 2000 *Science* paper. Lead spheres coated in soft silicone rubber, embedded in an epoxy matrix. The lead provides the inertia; the rubber provides the spring coupling to the host; together they form a resonator whose natural frequency is set by the sphere mass and coating stiffness. At and above this resonant frequency, the inner sphere moves opposite to the force applied to the outer shell. Pull the composite in one direction and the lead core accelerates the other way. Observed from outside, measuring only the net momentum of the composite, you would calculate a negative effective mass.
+[Liu and colleagues demonstrated this in its simplest form in their landmark 2000 *Science* paper](https://doi.org/10.1126/science.289.5485.1734). Lead spheres coated in soft silicone rubber, embedded in an epoxy matrix. The lead provides the inertia; the rubber provides the spring coupling to the host; together they form a resonator whose natural frequency is set by the sphere mass and coating stiffness. At and above this resonant frequency, the inner sphere moves opposite to the force applied to the outer shell. Pull the composite in one direction and the lead core accelerates the other way. Observed from outside, measuring only the net momentum of the composite, you would calculate a negative effective mass.
 
-The formal derivation, worked out carefully by Huang, Sun, and Huang (2009), produces an effective mass density of the form:
+The formal derivation, worked out carefully by [Huang, Sun, and Huang (2009)](https://doi.org/10.1016/j.ijengsci.2008.12.007), produces an effective mass density of the form:
 
 $$\rho_\text{eff}(\omega) = \rho_0 \left[1 - \frac{F \omega_r^2}{\omega^2 - \omega_r^2}\right]$$
 
@@ -54,7 +54,7 @@ A Helmholtz resonator is a rigid cavity with a narrow neck. When the fluid at th
 
 The surprise comes near resonance. Just above the Helmholtz resonant frequency ω_H, the cavity response leads the driving pressure. Applied compression now drives an oscillation that causes the enclosed volume to *expand*. The structure gets bigger when you squeeze it. That is negative bulk modulus.
 
-The effective bulk modulus of a host medium seeded with Helmholtz resonators takes a form analogous to the effective density expression: a function with a pole at ω_H that passes through zero and goes negative just above resonance. Cummer, Christensen, and Alù (2016) derive this explicitly in their Nature Reviews Materials survey and connect it to the broader effective-medium theory for acoustic metamaterials. The physical picture is the same as for density: the resonator's internal dynamics, not its static material properties, determine how the composite responds to waves near the resonant frequency.
+The effective bulk modulus of a host medium seeded with Helmholtz resonators takes a form analogous to the effective density expression: a function with a pole at ω_H that passes through zero and goes negative just above resonance. [Cummer, Christensen, and Alù (2016)](https://doi.org/10.1038/natrevmats.2016.1) derive this explicitly in their Nature Reviews Materials survey and connect it to the broader effective-medium theory for acoustic metamaterials. The physical picture is the same as for density: the resonator's internal dynamics, not its static material properties, determine how the composite responds to waves near the resonant frequency.
 
 ---
 
@@ -80,7 +80,7 @@ But not in the usual way. In a double-negative medium, the wave vector and the e
 
 The acoustic version follows the same mathematics. A negative index means that a wave crossing an interface into the double-negative medium refracts backwards: instead of bending toward the normal on the far side of an interface (as in glass), it bends *the same way* as the incoming wave, on the same side. Snell's law still holds, but with n < 0 the bending goes the other direction. This produces effects with no natural counterpart: superlensing (focusing below the diffraction limit) and acoustic cloaking, where a designed shell of spatially varying effective parameters guides sound waves around an object so cleanly that a downstream observer detects nothing.
 
-Hussein, Leamy, and Ruzzene (2014) situate these double-negative phenomena within the broader landscape of phononic and acoustic metamaterials in their Applied Mechanics Reviews survey, connecting the effective-medium picture to the periodicity and band structure analysis that underlies the full theoretical framework.
+[Hussein, Leamy, and Ruzzene (2014)](https://doi.org/10.1115/1.4026911) situate these double-negative phenomena within the broader landscape of phononic and acoustic metamaterials in their Applied Mechanics Reviews survey, connecting the effective-medium picture to the periodicity and band structure analysis that underlies the full theoretical framework.
 
 ---
 
@@ -272,7 +272,12 @@ What we have not yet done is map these effects across the full spectrum of a per
 
 ---
 
-*Next post: [Dispersion Relations and Band Diagrams: Reading the Map of Forbidden Frequencies →]()*
+## Series Navigation
+
+← **Previous:** [Post 2: The Wave Equation — Where Everything Begins](/posts/metamaterials-02-the-wave-equation/)  
+**Next:** [Post 4: Band Gaps and Dispersion — Reading the Map →](/posts/metamaterials-04-band-gaps-dispersion/)
+
+---
 
 {{< alert icon="circle-info" cardColor="#f1f5f9" iconColor="#94a3b8" textColor="#475569" >}}
 **AI Assistance:** This post was written and edited by the author, with AI assistance from Claude Sonnet 4.6 (Anthropic) via [OpenClaw](https://openclaw.ai). The research direction, editorial decisions, and code review are the author's own.
