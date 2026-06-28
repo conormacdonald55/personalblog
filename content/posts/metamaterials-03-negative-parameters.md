@@ -1,13 +1,13 @@
 ---
-title: "Negative Parameters — When Physics Gets Weird"
-subtitle: "How engineered materials can have negative density and negative bulk modulus — and what that actually means"
+title: "Negative Parameters - When Physics Gets Weird"
+subtitle: "How engineered materials can have negative density and negative bulk modulus - and what that actually means"
 date: 2026-03-18
 series: ["acoustic-metamaterials"]
 tags: ["metamaterials", "acoustics", "negative density", "negative bulk modulus", "physics"]
 categories: ["The Research"]
 series_order: 3
 draft: false
-description: "Negative mass. Negative stiffness. These aren't science fiction — they're how acoustic metamaterials work. Here's the physics."
+description: "Negative mass. Negative stiffness. These aren't science fiction - they're how acoustic metamaterials work. Here's the physics."
 ---
 
 At the end of Post 2, we derived the wave equation and discovered something unsettling sitting inside it. If the effective density of a material goes negative, the character of the equation changes. Instead of oscillatory solutions that propagate energy through space, you get exponential ones: a wave entering such a region decays rather than travels. We called this evanescent decay, named the resulting frequency band a band gap, and noted that this was central to everything interesting in acoustic metamaterials.
@@ -25,6 +25,10 @@ The key word, the one that makes all of this physically coherent, is *effective*
 When a wave propagates through a material, it does not resolve individual atoms or individual structural elements. If the wavelength is much larger than the internal structure, the wave responds to the averaged, macroscopic behaviour of the medium. This averaging process is called homogenisation, and the parameters it produces are called effective parameters: an effective density ρ_eff and an effective bulk modulus B_eff.
 
 In a conventional material, effective parameters are essentially just the bulk material properties. The homogenised density of steel is, to excellent approximation, the density of steel. But in an engineered structure with internal resonators, the effective parameters become frequency-dependent. Near a resonance, the structure responds to an applied force or pressure in ways the static material properties do not predict. And in those narrow frequency windows near resonance, the effective parameters can take values unavailable in any natural material. Including negative ones.
+
+{{< alert icon="circle-info" cardColor="#f1f5f9" iconColor="#94a3b8" textColor="#475569" >}}
+**Bad design vs good design - an analogy for effective parameters:** Imagine you are photographing a picket fence from far away. The fence looks like a solid wall; you can't see the individual pickets. That is homogenisation: the fine structure averages out, and the fence has an effective "density" and "stiffness" that describe how it blocks your view. Now imagine that halfway along the fence, every third picket has a spring-loaded flap that swings open when the wind blows. From far away, the fence near the flaps looks blurry and less solid. To an observer at a distance, the fence seems to change its effective density depending on the wind condition. But no individual picket changed. The effective parameter shifted because the internal dynamics (the swinging flaps) changed how the structure responded at the macro scale. That is exactly what happens in a metamaterial: the internal resonators are the flaps, and the near-resonance dynamics change the effective density or stiffness that the wave experiences.
+{{< /alert >}}
 
 This is not magic, and it is not a violation of any physical law. No individual component has negative mass or negative stiffness. The effective parameters are emergent descriptions of how the composite structure responds to waves at the macroscale. They are real, measurable quantities. They are simply not the same as the properties of the constituent materials.
 
@@ -155,9 +159,9 @@ k_imag = np.where(k_sq < 0,  np.sqrt(-k_sq), 0.0)  # evanescent decay rate α
 fig = plt.figure(figsize=(14, 10))
 gs  = gridspec.GridSpec(2, 2, hspace=0.45, wspace=0.35)
 
-clr_prop = "#2563eb"   # propagating — blue
-clr_evan = "#ef4444"   # evanescent  — red
-clr_zero = "#94a3b8"   # zero line   — grey
+clr_prop = "#2563eb"   # propagating - blue
+clr_evan = "#ef4444"   # evanescent  - red
+clr_zero = "#94a3b8"   # zero line   - grey
 
 # Helper: shade evanescent regions (k² < 0)
 def shade_evanescent(ax):
@@ -203,8 +207,8 @@ shade_evanescent(ax2)
 
 # ── Plot 3: k_real(ω) and k_imag(ω) ──────────────────────────────────────────
 ax3 = fig.add_subplot(gs[1, 0])
-ax3.plot(omega, k_real, color=clr_prop, linewidth=2, label='Re(k) — propagating')
-ax3.plot(omega, k_imag, color=clr_evan, linewidth=2, linestyle='--', label='Im(k) = α — evanescent')
+ax3.plot(omega, k_real, color=clr_prop, linewidth=2, label='Re(k) - propagating')
+ax3.plot(omega, k_imag, color=clr_evan, linewidth=2, linestyle='--', label='Im(k) = α - evanescent')
 ax3.axhline(0, color=clr_zero, linewidth=0.8, linestyle='--')
 ax3.axvline(wr, color="#f59e0b", linewidth=1.0, linestyle=':', alpha=0.7)
 ax3.axvline(wH, color="#8b5cf6", linewidth=1.0, linestyle=':', alpha=0.7)
@@ -216,7 +220,7 @@ ax3.legend(fontsize=9)
 ax3.grid(True, alpha=0.3, linestyle='--')
 shade_evanescent(ax3)
 
-# ── Plot 4: k²(ω) — the decisive quantity ─────────────────────────────────────
+# ── Plot 4: k²(ω) - the decisive quantity ─────────────────────────────────────
 ax4 = fig.add_subplot(gs[1, 1])
 ax4.plot(omega, k_sq, color="#0f172a", linewidth=2)
 ax4.axhline(0, color=clr_zero, linewidth=0.8, linestyle='--')
@@ -244,6 +248,8 @@ plt.show()
 print("Saved: effective_parameters.png")
 ```
 
+![Effective parameters plot: rho_eff and B_eff showing negative regimes, with k^2 shading band gaps](/images/amm/effective_parameters.png)
+
 **What the plots show:** The top-left panel traces ρ_eff(ω), which goes negative in a window above ω_r. The top-right traces B_eff(ω), which goes negative above ω_H. The bottom-left separates Re(k) from Im(k) = α, the evanescent decay rate; wherever the imaginary part is non-zero, energy is not transmitting. The bottom-right plots k² directly and shades the regions by sign. Red bands are the band gaps. Notice that beyond the second pole, both parameters are negative and k² is positive again: the double-negative propagating window.
 
 **To run:** Paste into a `.py` file or Jupyter notebook. Standard `numpy` and `matplotlib` only. Adjust `wr`, `wH`, `F`, and `G` to shift the gap positions and widths.
@@ -260,9 +266,9 @@ What we have not yet done is map these effects across the full spectrum of a per
 
 ## References
 
-1. **Liu, Z., Zhang, X., Mao, Y., Zhu, Y. Y., Yang, Z., Chan, C. T., & Sheng, P. (2000).** Locally resonant sonic materials. *Science*, 289(5485), 1734–1736. https://doi.org/10.1126/science.289.5485.1734 *(The foundational demonstration of locally resonant acoustic metamaterials and sub-wavelength band gaps.)*
+1. **Liu, Z., Zhang, X., Mao, Y., Zhu, Y. Y., Yang, Z., Chan, C. T., & Sheng, P. (2000).** Locally resonant sonic materials. *Science*, 289(5485), 1734-1736. https://doi.org/10.1126/science.289.5485.1734 *(The foundational demonstration of locally resonant acoustic metamaterials and sub-wavelength band gaps.)*
 
-2. **Huang, H. H., Sun, C. T., & Huang, G. L. (2009).** On the negative effective mass density in acoustic metamaterials. *International Journal of Engineering Science*, 47(4), 610–617. https://doi.org/10.1016/j.ijengsci.2008.12.007 *(Formal derivation of the frequency-dependent effective density from the two-mass model.)*
+2. **Huang, H. H., Sun, C. T., & Huang, G. L. (2009).** On the negative effective mass density in acoustic metamaterials. *International Journal of Engineering Science*, 47(4), 610-617. https://doi.org/10.1016/j.ijengsci.2008.12.007 *(Formal derivation of the frequency-dependent effective density from the two-mass model.)*
 
 3. **Huang, G. L., & Sun, C. T. (2010).** Band gaps in a multiresonator acoustic metamaterial. *Journal of Vibration and Acoustics*, 132(3), 031003. https://doi.org/10.1115/1.4001452 *(Extension to multiresonator systems; connects effective-parameter description to multi-gap band structure.)*
 
@@ -274,8 +280,8 @@ What we have not yet done is map these effects across the full spectrum of a per
 
 ## Series Navigation
 
-← **Previous:** [Post 2: The Wave Equation — Where Everything Begins](/posts/metamaterials-02-the-wave-equation/)  
-**Next:** [Post 4: Band Gaps and Dispersion — Reading the Map →](/posts/metamaterials-04-band-gaps-dispersion/)
+← **Previous:** [Post 2: The Wave Equation - Where Everything Begins](/posts/metamaterials-02-the-wave-equation/)  
+**Next:** [Post 4: Band Gaps and Dispersion - Reading the Map →](/posts/metamaterials-04-band-gaps-dispersion/)
 
 ---
 

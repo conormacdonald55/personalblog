@@ -1,13 +1,13 @@
 ---
-title: "Band Gaps and Dispersion — Reading the Map"
-subtitle: "How dispersion relations reveal where waves can and can't travel — and why band gaps are the heart of metamaterial design"
+title: "Band Gaps and Dispersion - Reading the Map"
+subtitle: "How dispersion relations reveal where waves can and can't travel - and why band gaps are the heart of metamaterial design"
 date: 2026-03-18
 series: ["acoustic-metamaterials"]
 tags: ["metamaterials", "acoustics", "band gaps", "dispersion", "Bloch-Floquet", "phononic crystals"]
 categories: ["The Research"]
 series_order: 4
 draft: false
-description: "The dispersion relation is the map of a metamaterial. Here's how to read it — and what band gaps actually mean."
+description: "The dispersion relation is the map of a metamaterial. Here's how to read it - and what band gaps actually mean."
 ---
 
 At the end of Post 3, we arrived at a precise physical picture of how a material's effective parameters can go negative. Near a resonant frequency, the internal dynamics of a locally resonant inclusion reverse the macroscopic response: effective density goes negative above the resonant frequency of the internal mass, effective bulk modulus goes negative above the Helmholtz resonant frequency. When either parameter is negative, k² is negative, k becomes imaginary, and waves decay exponentially rather than propagate. We called the resulting frequency window a band gap.
@@ -42,6 +42,10 @@ Band gaps in periodic structures come from two distinct physical mechanisms, and
 
 **Bragg scattering** is the older mechanism, familiar from X-ray crystallography. When the lattice period a is comparable to the acoustic wavelength λ, waves reflecting from successive unit cells interfere with the forward-propagating wave. At the Bragg condition (2a = nλ for integer n), this interference is destructive and propagation is forbidden. [Kushwaha, Halevi, Dobrzynski, and Djafari-Rouhani demonstrated this for elastic composites in their 1993 Physical Review Letters paper](https://doi.org/10.1103/PhysRevLett.71.2022), which introduced the term "phononic crystals" and established Bragg-based band structure as the foundational framework for periodic acoustic engineering. The Bragg gap frequency scales inversely with the lattice constant: pushing it to lower frequencies requires either a larger unit cell or a slower medium, both of which impose significant geometric constraints.
 
+{{< alert icon="circle-info" cardColor="#f1f5f9" iconColor="#94a3b8" textColor="#475569" >}}
+**What this means for you:** A Bragg gap is like a highway underpass that only lets certain vehicle heights through. A local resonance gap is like a speed bump that stops cars regardless of how high they are. Bragg works by geometry (height of the underpass). Local resonance works by physics (the bump interacts with the car's suspension). This distinction is why metamaterials can block sound at frequencies far lower than their physical size would suggest.
+{{< /alert >}}
+
 **Local resonance** works at a fundamentally different scale. The gap appears near the resonant frequency ω_r of the internal resonator embedded in each unit cell, regardless of the lattice constant, provided the acoustic wavelength is much larger than the unit cell. This is the sub-wavelength condition, and it is what [Liu and colleagues exploited in their 2000 Science paper](https://doi.org/10.1126/science.289.5485.1734) to produce band gaps at frequencies two orders of magnitude below what Bragg scattering would predict from the same physical dimensions. The mechanism is not geometric interference but inertial reversal: at and above ω_r, the internal mass moves against the applied force, and the composite appears, to an outside observer, to have negative effective mass. The gap position is set by the resonator physics, not the unit cell size, which is why locally resonant metamaterials can achieve low-frequency attenuation that would be geometrically impractical with Bragg-based designs.
 
 ---
@@ -63,6 +67,10 @@ Everything discussed so far can be controlled. The resonant frequency of a local
 Multiple gaps are achievable by designing unit cells with resonators at several distinct frequencies. [Huang and Sun (2010)](https://doi.org/10.1115/1.4001452) showed that multi-resonator acoustic metamaterials produce band gaps centred on each resonant frequency in the system. This is one practical route toward broadband attenuation: instead of one narrow forbidden band, you build a ladder of gaps covering a wider frequency range. The geometry need not be exotic; graded resonator masses and adjusted spring constants are often sufficient to position multiple gaps where an application demands them.
 
 For Bragg gaps, the control parameter is impedance contrast: alternating layers of high and low acoustic impedance widen the gap; closely matched layers narrow it. This is the same principle underlying classical quarter-wave stacks in optics, and it transfers directly to periodic acoustic composites. Designing simultaneously for both Bragg and local resonance gaps is an active area of research, and it points toward metamaterials that are effective across a much broader frequency range than either mechanism alone can achieve.
+
+{{< alert icon="circle-info" cardColor="#f1f5f9" iconColor="#94a3b8" textColor="#475569" >}}
+**What this means for you:** Think of the diatomic spring-mass chain like a line of people passing a heavy crate down a row. If everyone is the same strength, the crate moves smoothly. If every other person is weak (the heavy mass), the crate slows down at every other position. That bottleneck is the band gap. Change the ratio of strong to weak, and you change how wide the bottleneck is. The mass ratio m2/m1 is your design lever: higher contrast means a wider gap, but also a heavier unit cell.
+{{< /alert >}}
 
 ---
 
@@ -165,7 +173,7 @@ for ratio, colour in zip(mass_ratios, colours):
     gap_top    = omega_op.min()
 
     ax1.plot(k_vals, omega_ac, color=colour, linewidth=2.0,
-             label=f"m₂/m₁ = {ratio:.0f}  (gap: {gap_bottom:.2f}–{gap_top:.2f})")
+             label=f"m₂/m₁ = {ratio:.0f}  (gap: {gap_bottom:.2f}-{gap_top:.2f})")
     ax1.plot(k_vals, omega_op, color=colour, linewidth=2.0, linestyle='--')
 
     # Shade band gap for the highest contrast case only (cleaner)
@@ -174,7 +182,7 @@ for ratio, colour in zip(mass_ratios, colours):
 
 ax1.set_xlabel("Wavenumber k  (units of 1/a)", fontsize=11)
 ax1.set_ylabel("Angular frequency ω  (normalised)", fontsize=11)
-ax1.set_title("Diatomic Chain Dispersion — Effect of Mass Ratio\n"
+ax1.set_title("Diatomic Chain Dispersion - Effect of Mass Ratio\n"
               "(solid = acoustic branch, dashed = optical branch)", fontsize=12)
 ax1.legend(fontsize=9, loc='upper left')
 ax1.grid(True, linestyle='--', alpha=0.35)
@@ -204,7 +212,7 @@ fig2, ax2 = plt.subplots(figsize=(7, 6))
 
 ax2.plot(k_vals, omega_ac, color='#2563eb', linewidth=2.5, label='Acoustic branch')
 ax2.plot(k_vals, omega_op, color='#dc2626', linewidth=2.5, label='Optical branch')
-ax2.axhspan(gap_bottom, gap_top, alpha=0.15, color='#ef4444', label=f'Band gap ({gap_bottom:.2f} – {gap_top:.2f})')
+ax2.axhspan(gap_bottom, gap_top, alpha=0.15, color='#ef4444', label=f'Band gap ({gap_bottom:.2f} - {gap_top:.2f})')
 
 # Slope annotation (group velocity near k=0)
 dk     = k_vals[5] - k_vals[0]
@@ -228,7 +236,7 @@ ax2.annotate("Flat band → zero\ngroup velocity here",
 ax2.axvline(np.pi / a, color='#94a3b8', linewidth=1.0, linestyle=':')
 ax2.set_xlabel("Wavenumber k  (units of 1/a)", fontsize=11)
 ax2.set_ylabel("Angular frequency ω  (normalised)", fontsize=11)
-ax2.set_title(f"Band Diagram — Diatomic Chain  (m₂/m₁ = {m2/m1:.0f})", fontsize=12)
+ax2.set_title(f"Band Diagram - Diatomic Chain  (m₂/m₁ = {m2/m1:.0f})", fontsize=12)
 ax2.legend(fontsize=10)
 ax2.grid(True, linestyle='--', alpha=0.35)
 ax2.set_xlim(0, np.pi / a)
@@ -269,9 +277,15 @@ plt.show()
 print("Saved: band_diagram_mass_ratio.png, band_diagram_annotated.png, gap_width_vs_mass_ratio.png")
 ```
 
+![Band diagram for multiple mass ratios: acoustic and optical branches with band gaps](/images/amm/band_diagram_mass_ratio.png)
+
+![Detailed annotated band diagram with group velocity and flat band markers](/images/amm/band_diagram_annotated.png)
+
+![Band gap width vs mass ratio: the engineering tradeoff](/images/amm/gap_width_vs_mass_ratio.png)
+
 **Running the notebook:** Copy into a `.py` file or Jupyter notebook. Only `numpy` and `matplotlib` are required. Three figures are produced. The first overlays dispersion curves for four mass ratios, showing how increasing mass contrast widens and deepens the band gap. The second is an annotated single-ratio diagram pointing out where group velocity is steep (fast energy transport), where it flattens at the zone boundary, and where it reaches zero on the nearly flat optical branch. The third plots band gap width as a function of mass ratio, making the engineering tradeoff explicit: more contrast, more suppression, but also a heavier resonator.
 
-**What to explore:** Set `m2 = m1` (ratio = 1) and observe that the gap closes entirely — a uniform chain has no band gap, only a cutoff frequency. Increase the ratio progressively and watch the gap open from zero and widen. Adjust `k_spring` to shift the overall frequency scale without changing the gap structure. These are the same design levers available in physical metamaterials.
+**What to explore:** Set `m2 = m1` (ratio = 1) and observe that the gap closes entirely - a uniform chain has no band gap, only a cutoff frequency. Increase the ratio progressively and watch the gap open from zero and widen. Adjust `k_spring` to shift the overall frequency scale without changing the gap structure. These are the same design levers available in physical metamaterials.
 
 ---
 
@@ -279,11 +293,11 @@ print("Saved: band_diagram_mass_ratio.png, band_diagram_annotated.png, gap_width
 
 1. **Brillouin, L. (1953).** *Wave Propagation in Periodic Structures: Electric Filters and Crystal Lattices* (2nd ed.). Dover Publications. *(The classical reference for Bloch-Floquet theory and Brillouin zones; the clearest mathematical treatment of why periodicity creates forbidden frequency bands.)*
 
-2. **Kushwaha, M. S., Halevi, P., Dobrzynski, L., & Djafari-Rouhani, B. (1993).** Acoustic band structure of periodic elastic composites. *Physical Review Letters*, 71(13), 2022–2025. https://doi.org/10.1103/PhysRevLett.71.2022 *(Introduced the term "phononic crystals" and established the Bragg-scattering band gap framework for acoustic composites from first principles.)*
+2. **Kushwaha, M. S., Halevi, P., Dobrzynski, L., & Djafari-Rouhani, B. (1993).** Acoustic band structure of periodic elastic composites. *Physical Review Letters*, 71(13), 2022-2025. https://doi.org/10.1103/PhysRevLett.71.2022 *(Introduced the term "phononic crystals" and established the Bragg-scattering band gap framework for acoustic composites from first principles.)*
 
-3. **Liu, Z., Zhang, X., Mao, Y., Zhu, Y. Y., Yang, Z., Chan, C. T., & Sheng, P. (2000).** Locally resonant sonic materials. *Science*, 289(5485), 1734–1736. https://doi.org/10.1126/science.289.5485.1734 *(The foundational demonstration of locally resonant band gaps at sub-wavelength scales; the result that distinguishes metamaterial band gaps from Bragg gaps.)*
+3. **Liu, Z., Zhang, X., Mao, Y., Zhu, Y. Y., Yang, Z., Chan, C. T., & Sheng, P. (2000).** Locally resonant sonic materials. *Science*, 289(5485), 1734-1736. https://doi.org/10.1126/science.289.5485.1734 *(The foundational demonstration of locally resonant band gaps at sub-wavelength scales; the result that distinguishes metamaterial band gaps from Bragg gaps.)*
 
-4. **Phani, A. S., Woodhouse, J., & Fleck, N. A. (2006).** Wave propagation in two-dimensional periodic lattices. *Journal of the Acoustical Society of America*, 119(4), 1995–2005. https://doi.org/10.1121/1.2179748 *(Systematic treatment of dispersion in 2D periodic lattices; useful model for reading band diagrams and identifying gap criteria.)*
+4. **Phani, A. S., Woodhouse, J., & Fleck, N. A. (2006).** Wave propagation in two-dimensional periodic lattices. *Journal of the Acoustical Society of America*, 119(4), 1995-2005. https://doi.org/10.1121/1.2179748 *(Systematic treatment of dispersion in 2D periodic lattices; useful model for reading band diagrams and identifying gap criteria.)*
 
 5. **Hussein, M. I., Leamy, M. J., & Ruzzene, M. (2014).** Dynamics of phononic materials and structures: Historical origins, recent progress, and future outlook. *Applied Mechanics Reviews*, 66(4), 040802. https://doi.org/10.1115/1.4026911 *(Comprehensive review mapping the full trajectory from Bragg phononic crystals to locally resonant metamaterials and beyond; the reference for band structure analysis in the field.)*
 
@@ -297,8 +311,8 @@ print("Saved: band_diagram_mass_ratio.png, band_diagram_annotated.png, gap_width
 
 ## Series Navigation
 
-← **Previous:** [Post 3: Negative Parameters — When Physics Gets Weird](/posts/metamaterials-03-negative-parameters/)  
-**Next:** [Post 5: Nonlinearity and Chaos — When the Springs Stop Being Simple →](/posts/metamaterials-05-nonlinearity-chaos/)
+← **Previous:** [Post 3: Negative Parameters - When Physics Gets Weird](/posts/metamaterials-03-negative-parameters/)  
+**Next:** [Post 5: Nonlinearity and Chaos - When the Springs Stop Being Simple →](/posts/metamaterials-05-nonlinearity-chaos/)
 
 ---
 
