@@ -1,5 +1,5 @@
 ---
-title: "The Wave Equation — Where Everything Begins"
+title: "The Wave Equation - Where Everything Begins"
 subtitle: "Deriving the equation that governs sound, vibration, and why metamaterials can bend the rules"
 date: 2026-03-18
 series: ["acoustic-metamaterials"]
@@ -7,10 +7,10 @@ tags: ["metamaterials", "acoustics", "wave equation", "physics", "mathematics"]
 categories: ["The Research"]
 series_order: 2
 draft: false
-description: "Before we can understand how metamaterials manipulate sound, we need the equation that governs it. Here's the wave equation — derived, explained, and connected to everything that follows."
+description: "Before we can understand how metamaterials manipulate sound, we need the equation that governs it. Here's the wave equation - derived, explained, and connected to everything that follows."
 ---
 
-At the end of Post 1, I mentioned the spring-mass chain: a row of masses connected by springs, which turns out to be the discrete skeleton underneath all wave physics in solids and metamaterials. Before we get there, though, we need something more fundamental. The spring-mass chain is useful precisely *because* it approximates something continuous, and that continuous something is governed by the wave equation. If you want to understand how metamaterials manipulate sound, you need to understand this equation first — where it comes from, what it says, and what happens when you start engineering the quantities inside it.
+At the end of Post 1, I mentioned the spring-mass chain: a row of masses connected by springs, which turns out to be the discrete skeleton underneath all wave physics in solids and metamaterials. Before we get there, though, we need something more fundamental. The spring-mass chain is useful precisely *because* it approximates something continuous, and that continuous something is governed by the wave equation. If you want to understand how metamaterials manipulate sound, you need to understand this equation first - where it comes from, what it says, and what happens when you start engineering the quantities inside it.
 
 This post derives the 1D wave equation from scratch using nothing more than Newton's second law and a small piece of a fluid. The maths is real but the steps are small. If you took second-year physics or engineering and then promptly forgot most of it, this should come back naturally.
 
@@ -20,11 +20,15 @@ This post derives the 1D wave equation from scratch using nothing more than Newt
 
 The textbook answer is "a disturbance that propagates through a medium," which is technically correct and almost entirely unhelpful. Let's be more specific.
 
-A wave is how a medium transports energy from one place to another *without permanently displacing the matter it's made of*. This is the genuinely counterintuitive part. When a sound wave travels across a room, the air molecules are not migrating from your mouth to my ear. Each molecule oscillates locally — compressing forward, relaxing back, compressing forward again — and this pattern of compression and rarefaction moves through space. The energy travels; the medium doesn't.
+A wave is how a medium transports energy from one place to another *without permanently displacing the matter it's made of*. This is the genuinely counterintuitive part. When a sound wave travels across a room, the air molecules are not migrating from your mouth to my ear. Each molecule oscillates locally - compressing forward, relaxing back, compressing forward again - and this pattern of compression and rarefaction moves through space. The energy travels; the medium doesn't.
 
 You can see the same thing in water. Throw a stone into a still pond. The ripples travel outward, but a floating leaf just bobs up and down in place. The wave moves; the water doesn't go anywhere net.
 
-For sound specifically: a pressure disturbance propagates through air (or any fluid or solid) as alternating regions of high and low pressure. The molecules in a high-pressure zone push on their neighbours, creating a new high-pressure zone slightly further along, while the original zone relaxes. This chain of compression and expansion — each element responding to the one before it, handing the disturbance along — is what we call a longitudinal acoustic wave.
+For sound specifically: a pressure disturbance propagates through air (or any fluid or solid) as alternating regions of high and low pressure. The molecules in a high-pressure zone push on their neighbours, creating a new high-pressure zone slightly further along, while the original zone relaxes. This chain of compression and expansion - each element responding to the one before it, handing the disturbance along - is what we call a longitudinal acoustic wave.
+
+{{< alert icon="circle-info" cardColor="#f1f5f9" iconColor="#94a3b8" textColor="#475569" >}}
+**What this means for you:** Think of a stadium doing a Mexican wave. Each spectator stands up and sits down in place - no one moves seats. But the wave travels all the way around the stadium. Air molecules do the same thing: they oscillate locally (stand up, sit down), while the disturbance (the wave) propagates through the entire medium. A wave is not a thing; it is a pattern of local motion that travels. This is why we say energy travels but the medium does not.
+{{< /alert >}}
 
 The question is: can we write down a single equation that captures this behaviour for *all* points in the medium at *all* times?
 
@@ -56,7 +60,7 @@ Dividing through by AΔx:
 
 $$-\frac{\partial P}{\partial x} = \rho \frac{\partial^2 u}{\partial t^2}$$
 
-This is the equation of motion for the fluid element — essentially Newton's second law written in field form. It says the local pressure gradient drives local acceleration.
+This is the equation of motion for the fluid element - essentially Newton's second law written in field form. It says the local pressure gradient drives local acceleration.
 
 **Connecting pressure to displacement:** We need one more physical relationship. The bulk modulus B of a fluid measures how much pressure change you get for a given fractional change in volume. A small element that's compressed by ∂u/∂x (where a negative value means compression) experiences a pressure change:
 
@@ -82,9 +86,9 @@ Every step here was straightforward: Newton's law, a first-order Taylor expansio
 
 The wave speed c = √(B/ρ) encodes something important: how fast waves travel depends entirely on the material properties of the medium.
 
-A stiffer medium (higher B) transmits waves faster — the molecules are more tightly coupled, so a compression here reaches over there more quickly. A denser medium (higher ρ) transmits waves slower — more inertia to overcome at each step. This is why sound travels at around 340 m/s in air (low density, modest stiffness) but at around 1,480 m/s in water (much higher bulk modulus, denser but the stiffness wins). In steel, it's closer to 5,000 m/s.
+A stiffer medium (higher B) transmits waves faster - the molecules are more tightly coupled, so a compression here reaches over there more quickly. A denser medium (higher ρ) transmits waves slower - more inertia to overcome at each step. This is why sound travels at around 340 m/s in air (low density, modest stiffness) but at around 1,480 m/s in water (much higher bulk modulus, denser but the stiffness wins). In steel, it's closer to 5,000 m/s.
 
-This is where the connection to metamaterials becomes tangible. The wave equation says that if you can engineer B and ρ — the bulk modulus and density a wave *effectively experiences* as it passes through your material — you control everything about how that wave propagates. Its speed, its direction, whether it propagates at all. The entire field of acoustic metamaterials is, at one level, an exercise in engineering effective values of these two quantities.
+This is where the connection to metamaterials becomes tangible. The wave equation says that if you can engineer B and ρ - the bulk modulus and density a wave *effectively experiences* as it passes through your material - you control everything about how that wave propagates. Its speed, its direction, whether it propagates at all. The entire field of acoustic metamaterials is, at one level, an exercise in engineering effective values of these two quantities.
 
 ---
 
@@ -102,7 +106,7 @@ The relationship between ω and k is known as the *dispersion relation*. For a s
 
 ---
 
-## When the Equation Breaks — Band Gaps and Evanescent Decay
+## When the Equation Breaks - Band Gaps and Evanescent Decay
 
 Here's where it gets relevant to everything that follows. Go back to the wave equation:
 
@@ -112,13 +116,13 @@ Now suppose ρ_eff is negative. The right-hand side flips sign, and the equation
 
 $$\frac{\partial^2 u}{\partial t^2} = -|c^2| \frac{\partial^2 u}{\partial x^2}$$
 
-This no longer has oscillatory solutions. Instead of u ~ e^{ikx}, the spatial solutions are exponentials: u ~ e^{±αx} with α real. A wave entering a region with negative effective density doesn't propagate — it decays exponentially with distance. This is called *evanescent decay*, and a frequency range where it happens is a *band gap*: the material refuses to transmit waves at those frequencies.
+This no longer has oscillatory solutions. Instead of u ~ e^{ikx}, the spatial solutions are exponentials: u ~ e^{±αx} with α real. A wave entering a region with negative effective density doesn't propagate - it decays exponentially with distance. This is called *evanescent decay*, and a frequency range where it happens is a *band gap*: the material refuses to transmit waves at those frequencies.
 
-The same thing happens if B_eff goes negative. And if both go negative simultaneously, something more surprising occurs: the wave propagates again, but backwards — the phase velocity points opposite to the energy flow. That situation produces negative refraction, the basis for acoustic cloaking.
+The same thing happens if B_eff goes negative. And if both go negative simultaneously, something more surprising occurs: the wave propagates again, but backwards - the phase velocity points opposite to the energy flow. That situation produces negative refraction, the basis for acoustic cloaking.
 
 All of this flows directly from the wave equation. Metamaterials don't add new physics; they engineer the parameters inside equations we already have.
 
-In Post 3, we'll build the physical model that makes this happen — the spring-mass-damper lattice that produces these anomalous effective properties at specific frequencies. The wave equation is the end goal; the spring-mass chain is the mechanism that gets us there.
+In Post 3, we'll build the physical model that makes this happen - the spring-mass-damper lattice that produces these anomalous effective properties at specific frequencies. The wave equation is the end goal; the spring-mass chain is the mechanism that gets us there.
 
 ---
 
@@ -136,7 +140,7 @@ import matplotlib.gridspec as gridspec
 NX    = 500          # number of spatial grid points
 NT    = 1200         # number of time steps
 DX    = 0.01         # spatial step (m)
-DT    = 0.4 * DX     # time step (s) — CFL condition: DT < DX/c_max
+DT    = 0.4 * DX     # time step (s) - CFL condition: DT < DX/c_max
 
 # ─── Helper: Gaussian pulse initial condition ─────────────────────────────────
 
@@ -258,7 +262,7 @@ snaps_evan = fdtd_wave_evanescent(snap_steps)
 # ─── Plot 1: Wave propagation snapshots (3 scenarios) ────────────────────────
 
 fig, axes = plt.subplots(3, 4, figsize=(16, 9), sharey=True, sharex=True)
-fig.suptitle("1D Wave Equation — FDTD Simulation", fontsize=14, y=1.01)
+fig.suptitle("1D Wave Equation - FDTD Simulation", fontsize=14, y=1.01)
 
 titles = ["Uniform medium  (c = 1.0 m/s)",
           "Dense medium    (c = 0.6 m/s)",
@@ -297,7 +301,7 @@ fig2, ax2 = plt.subplots(figsize=(7, 4.5))
 ax2.plot(rho_vals, c_vals, color="#2563eb", linewidth=2)
 ax2.set_xlabel("Density ρ  (kg/m³, normalised)", fontsize=11)
 ax2.set_ylabel("Wave speed c  (m/s, normalised)", fontsize=11)
-ax2.set_title("Wave speed vs density  —  c = √(B/ρ),  B = 1.0", fontsize=12)
+ax2.set_title("Wave speed vs density  -  c = √(B/ρ),  B = 1.0", fontsize=12)
 ax2.grid(True, linestyle="--", alpha=0.4)
 ax2.annotate("Higher density → slower wave", xy=(3.0, np.sqrt(1/3.0)),
              xytext=(3.2, 0.85),
@@ -307,6 +311,10 @@ fig2.tight_layout()
 plt.savefig("wave_speed_vs_density.png", dpi=150, bbox_inches="tight")
 plt.show()
 ```
+
+![FDTD wave equation simulation: three scenarios showing pulse propagation in uniform, dense, and evanescent media](/images/amm/wave_eq_snapshots.png)
+
+![Wave speed vs density: the c = sqrt(B/rho) relationship](/images/amm/wave_speed_vs_density.png)
 
 **Running the notebook:** save the code as a `.py` file or paste into a Jupyter cell. It requires `numpy` and `matplotlib` (both standard in any scientific Python environment). The simulation runs in a few seconds. Three rows of panels show the pulse at four time snapshots under each scenario; the shaded red region in row 3 is the evanescent zone where the pulse decays instead of propagating through. The second figure shows the c(ρ) relationship, which becomes central in Post 4 when we plot full dispersion curves.
 
@@ -325,7 +333,7 @@ plt.show()
 ## Series Navigation
 
 ← **Previous:** [Post 1: What is a Metamaterial, and Why Should You Care?](/posts/metamaterials-01-what-is-a-metamaterial/)  
-**Next:** [Post 3: Negative Parameters — When Physics Gets Weird →](/posts/metamaterials-03-negative-parameters/)
+**Next:** [Post 3: Negative Parameters - When Physics Gets Weird →](/posts/metamaterials-03-negative-parameters/)
 
 ---
 

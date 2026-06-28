@@ -1,13 +1,13 @@
 ---
-title: "When the Springs Stop Being Simple — Nonlinearity and Chaos"
-subtitle: "What happens when you push a metamaterial hard enough that the linear approximation breaks — and why that's where it gets interesting"
+title: "When the Springs Stop Being Simple - Nonlinearity and Chaos"
+subtitle: "What happens when you push a metamaterial hard enough that the linear approximation breaks - and why that's where it gets interesting"
 date: 2026-03-18
 series: ["acoustic-metamaterials"]
 tags: ["metamaterials", "acoustics", "nonlinear", "chaos", "Duffing oscillator", "band gaps"]
 categories: ["The Research"]
 series_order: 5
-draft: true
-description: "Linear metamaterials are elegant. Nonlinear ones are alive. Here's what happens when amplitude matters — and why chaos might be the design tool we've been overlooking."
+draft: false
+description: "Linear metamaterials are elegant. Nonlinear ones are alive. Here's what happens when amplitude matters - and why chaos might be the design tool we've been overlooking."
 ---
 
 Everything in the last four posts has rested on a single assumption, stated quietly but used constantly: the oscillations are small. Small enough that restoring forces are proportional to displacement. Small enough that the wave equation stays linear, that superposition holds, that the dispersion relation describes behaviour across all amplitudes equally. The band gaps we derived in Post 4 are real, they work in experiments, and they are beautiful. But they belong to a world where amplitude doesn't matter.
@@ -41,6 +41,10 @@ $$F = -kx - \alpha x^3$$
 This is the Duffing oscillator, first studied systematically by Georg Duffing in 1918. The coefficient α controls the character of the nonlinearity. When α > 0, the spring stiffens as displacement grows: the effective spring constant increases with amplitude, and the oscillator's natural frequency rises. When α < 0, the spring softens, frequency falls. Both cases occur in real physical systems depending on the material and geometry involved.
 
 The frequency-response curve that results from this single extra term is already qualitatively different from anything a linear oscillator produces. In a linear system, the resonance peak is symmetric: the oscillator responds most strongly at exactly the natural frequency, and the response falls off on both sides. In the Duffing oscillator, the peak leans. The hardening case (α > 0) bends the resonance curve to the right; the softening case bends it left. At high enough drive amplitudes, the curve folds back on itself, creating a region where three different steady-state responses are possible at the same driving frequency. Two are stable; one is not. Which stable state the system finds depends on its history, specifically on whether the driving frequency is being swept upward or downward. This hysteresis, a property linear systems fundamentally cannot exhibit, is the first sign that amplitude is starting to matter.
+
+{{< alert icon="circle-info" cardColor="#f1f5f9" iconColor="#94a3b8" textColor="#475569" >}}
+**What this means for you:** Think of the Duffing oscillator like a swing with rubber ropes instead of metal chains. When you push gently, the ropes behave like normal chains. Push hard enough, and the ropes start to stretch. The swing feels stiffer, so it rocks faster - the resonant frequency shifts upward. Now imagine that the rope stiffness depends on how hard you pushed in the past. The swing can be in one of two states at the same push frequency, depending on whether you were pushing harder or softer before. That is hysteresis. A linear oscillator (metal chains) can never do this. A Duffing oscillator (rubber ropes) does it naturally. In a metamaterial, this means the band gap moves as the vibration amplitude changes, adapting to the incoming energy.
+{{< /alert >}}
 
 In the context of a metamaterial resonator, this matters because the resonant frequency of each internal oscillator is no longer a fixed number. It depends on how hard you're driving it. And when the resonant frequency shifts, the band gap shifts with it.
 
@@ -107,7 +111,7 @@ Two related demonstrations. First, the frequency response of a driven Duffing os
 
 ```python
 """
-Post 5 Companion: Duffing Oscillator — Frequency Response and Bifurcation
+Post 5 Companion: Duffing Oscillator - Frequency Response and Bifurcation
 ==========================================================================
 Demonstrates:
   1. Amplitude-dependent frequency response (hardening and softening nonlinearity)
@@ -142,7 +146,7 @@ def duffing(t, y, zeta, epsilon, A, omega_d):
     dvdt = -2*zeta*v - x - epsilon*x**3 + A*np.cos(omega_d*t)
     return [dxdt, dvdt]
 
-# ─── Figure 1: Frequency response — linear vs nonlinear ──────────────────────
+# ─── Figure 1: Frequency response - linear vs nonlinear ──────────────────────
 
 omega_range = np.linspace(0.4, 1.8, 120)
 configs = [
@@ -208,7 +212,7 @@ for A in A_range:
 
 ax2.set_xlabel('Drive amplitude A', fontsize=11)
 ax2.set_ylabel('Poincaré section: displacement x', fontsize=11)
-ax2.set_title('Bifurcation Diagram — Duffing Oscillator\n'
+ax2.set_title('Bifurcation Diagram - Duffing Oscillator\n'
               f'(ε = {epsilon_bif}, ω_d = {omega_bif}, ζ = {zeta})', fontsize=12)
 ax2.grid(True, linestyle='--', alpha=0.25)
 fig2.tight_layout()
@@ -217,6 +221,10 @@ plt.show()
 
 print("Saved: duffing_frequency_response.png, duffing_bifurcation.png")
 ```
+
+![Duffing frequency response: linear vs hardening vs softening nonlinearity](/images/amm/duffing_frequency_response.png)
+
+![Duffing bifurcation diagram: period-doubling cascade to chaos](/images/amm/duffing_bifurcation.png)
 
 **Running the notebook:** Copy into a `.py` file or Jupyter notebook. The bifurcation diagram simulation is the most computationally intensive; expect a few minutes on a standard laptop. Only `numpy`, `scipy`, and `matplotlib` are required.
 
@@ -246,7 +254,7 @@ print("Saved: duffing_frequency_response.png, duffing_bifurcation.png")
 
 ## Series Navigation
 
-← **Previous:** [Post 4: Band Gaps and Dispersion — Reading the Map](/posts/metamaterials-04-band-gaps-dispersion/)  
+← **Previous:** [Post 4: Band Gaps and Dispersion - Reading the Map](/posts/metamaterials-04-band-gaps-dispersion/)  
 **Next:** [Post 6: Strange Attractors and Chaos as Design Tool →](/posts/metamaterials-06-strange-attractors/)
 
 ---

@@ -76,6 +76,10 @@ This is what acoustic metamaterials exploit. Build the right internal resonator 
 
 A material with both simultaneously negative actually transmits waves, while a single negative value reflects or evanescently attenuates them. That combination is the key to phenomena like acoustic cloaking.
 
+{{< alert icon="circle-info" cardColor="#f1f5f9" iconColor="#94a3b8" textColor="#475569" >}}
+**What this means for you:** An analogy for negative effective mass. Imagine two people on a boat. The first person (the outer structure) pushes off from a dock. Normally both people move forward together. But if the second person (the internal resonator) is holding a heavy spring connected to the boat, and you push at just the right rhythm, the second person lags behind and actually pulls the boat backward for an instant. To someone on the shore watching only the boat, it looks like the boat weighs less than nothing - it accelerates opposite to the push. That is negative effective mass. No physical law was violated; it is just the internal dynamics (the lagging person) reversing the observable motion at that specific frequency.
+{{< /alert >}}
+
 ---
 
 ## Real Applications: This Isn't All Theoretical
@@ -237,20 +241,20 @@ def main():
 
     # Plot 1: Eigenfrequencies (density of states)
     axes[0, 0].hist(freqs_uniform, bins=30, color='steelblue', alpha=0.8, label='Uniform')
-    axes[0, 0].set_title("Eigenfrequency Distribution — Uniform Chain")
+    axes[0, 0].set_title("Eigenfrequency Distribution - Uniform Chain")
     axes[0, 0].set_xlabel("Frequency (normalised)")
     axes[0, 0].set_ylabel("Count")
     axes[0, 0].legend()
 
     axes[0, 1].hist(freqs_disordered, bins=30, color='tomato', alpha=0.8, label='Disordered')
-    axes[0, 1].set_title("Eigenfrequency Distribution — Disordered Chain")
+    axes[0, 1].set_title("Eigenfrequency Distribution - Disordered Chain")
     axes[0, 1].set_xlabel("Frequency (normalised)")
     axes[0, 1].set_ylabel("Count")
     axes[0, 1].legend()
 
     # Plot 2: Transmission spectrum
     axes[1, 0].semilogy(freq_range, T_uniform + 1e-10, color='steelblue', label='Uniform')
-    axes[1, 0].set_title("Transmission Spectrum — Uniform Chain")
+    axes[1, 0].set_title("Transmission Spectrum - Uniform Chain")
     axes[1, 0].set_xlabel("Driving Frequency (normalised)")
     axes[1, 0].set_ylabel("Transmission Amplitude (log)")
     axes[1, 0].axvline(x=k_base**0.5 / np.pi * 0.5, color='k', linestyle='--', alpha=0.5, label='~Cutoff')
@@ -273,6 +277,8 @@ if __name__ == "__main__":
     main()
 ```
 
+![Spring-mass chain simulation results: eigenfrequency distributions and transmission spectra for uniform vs disordered chains](/images/amm/spring_mass_chain.png)
+
 📐 **A quick note on eigenvectors:** The simulation uses `scipy.linalg.eigh` to solve a generalised eigenvalue problem. The eigenvalues give you the squared natural frequencies, the frequencies at which the chain "wants" to vibrate. The eigenvectors are the corresponding mode shapes: patterns describing how each mass moves relative to the others at each natural frequency. In this post they're mostly a means to an end (we use them to compute the frequency distribution), but by Post 3 they'll become central to understanding how metamaterials create band gaps, so it's worth knowing what they represent.
 
 **To run:** Copy into a `.py` file or Jupyter notebook and run. Install dependencies with `pip install numpy scipy matplotlib`. The simulation will output four plots: eigenfrequency distributions for both chain types, and transmission spectra, both individually and overlaid for comparison.
@@ -294,15 +300,15 @@ The full roadmap is below:
 | **5** | Non-linear extensions: when the nice linear assumptions break down |
 | **6** | Chaos: sensitivity, attractors, and what this means for metamaterial design |
 
-The series builds deliberately. Posts 1–3 are accessible to anyone with a physics or engineering background, while Posts 4–6 get progressively more mathematical, culminating in the frontier research territory where I'm trying to make a contribution. Each post has a companion Jupyter notebook.
+The series builds deliberately. Posts 1-3 are accessible to anyone with a physics or engineering background, while Posts 4-6 get progressively more mathematical, culminating in the frontier research territory where I'm trying to make a contribution. Each post has a companion Jupyter notebook.
 
-If you already know acoustics and want to skip ahead, Post 4 is probably where things stop being review for you. If you're coming in completely fresh, Posts 1–3 will give you everything you need.
+If you already know acoustics and want to skip ahead, Post 4 is probably where things stop being review for you. If you're coming in completely fresh, Posts 1-3 will give you everything you need.
 
 ---
 
 ## References
 
-1. **Liu, Z., Zhang, X., Mao, Y., Zhu, Y. Y., Yang, Z., Chan, C. T., & Sheng, P. (2000).** Locally resonant sonic materials. *Science*, 289(5485), 1734–1736. [DOI: 10.1126/science.289.5485.1734](https://doi.org/10.1126/science.289.5485.1734) *(Seminal paper demonstrating local resonance as the mechanism for sub-wavelength band gaps; the founding result of locally resonant acoustic metamaterials.)*
+1. **Liu, Z., Zhang, X., Mao, Y., Zhu, Y. Y., Yang, Z., Chan, C. T., & Sheng, P. (2000).** Locally resonant sonic materials. *Science*, 289(5485), 1734-1736. [DOI: 10.1126/science.289.5485.1734](https://doi.org/10.1126/science.289.5485.1734) *(Seminal paper demonstrating local resonance as the mechanism for sub-wavelength band gaps; the founding result of locally resonant acoustic metamaterials.)*
 
 2. **Hussein, M. I., Leamy, M. J., & Ruzzene, M. (2014).** Dynamics of phononic materials and structures: Historical origins, recent progress, and future outlook. *Applied Mechanics Reviews*, 66(4), 040802. [DOI: 10.1115/1.4026911](https://doi.org/10.1115/1.4026911) *(Comprehensive review of the field; excellent companion reading for the full series arc.)*
 
@@ -313,7 +319,7 @@ If you already know acoustics and want to skip ahead, Post 4 is probably where t
 ## Series Navigation
 
 ← **Previous:** (first post in series)  
-**Next:** [Post 2: The Wave Equation — Where Everything Begins →](/posts/metamaterials-02-the-wave-equation/)
+**Next:** [Post 2: The Wave Equation - Where Everything Begins →](/posts/metamaterials-02-the-wave-equation/)
 
 ---
 
