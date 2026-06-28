@@ -317,5 +317,5 @@ print("Saved: band_diagram_mass_ratio.png, band_diagram_annotated.png, gap_width
 ---
 
 {{< alert icon="circle-info" cardColor="#f1f5f9" iconColor="#94a3b8" textColor="#475569" >}}
-**AI Assistance:** This post was written and edited by the author, with AI assistance from Deepseek v4 Flash via [OpenClaw](https://openclaw.ai). The research direction, editorial decisions, and code review are the author's own.
+**AI Assistance:** This post was written and edited by the author, with AI assistance from Deepseek v4 Flash via [Hermes Agent](https://hermes-agent.nousresearch.com). The research direction, editorial decisions, and code review are the author's own.
 {{< /alert >}}
